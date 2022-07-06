@@ -1,0 +1,212 @@
+/*
+ Theme Name:   Fluidify child
+ Theme URI:    https://www.influid.nl/
+ Description:  Fluidify Child Theme
+ Author:       Influid
+ Author URI:   https://www.influid.nl/
+ Template:     fluidify
+ Version:      1.0.0
+ Tags:         custom child
+ Text Domain:  fluidify-child
+*/
+:root {
+    --green: #018B42;
+    /* overflow: auto !important; */
+}
+body,html {
+    overflow-x: hidden !important;
+    margin: 0px !important;
+}
+/* ---------------------------------------------- STYLE ------------------------------------------------------- */
+.first-slide-homepage_img, .first-slide-overOns_img, .first-slide-zoeker, .first-slide-zoeker2, .first-slide-world_lid{
+    padding: 50px 0px 0px 100px;
+    margin-top: 70px;
+    max-width: 100%;
+    height: auto;  
+}
+.first-slide-homepage_img{
+    background: url('images/01_header-homepage.jpg') center center / cover no-repeat;
+    /* background-color: aqua; */
+    min-height: 100vh; 
+}
+.first-slide-overOns_img{
+    background: url('images/02_header-over-ons.jpg') center center / cover no-repeat;
+    min-height: 60vh; 
+}   
+.first-slide-zoeker{
+    background: url('images/03_header-zoeker-01.jpg') center center / cover no-repeat;
+    min-height: 70vh; 
+}
+.first-slide-zoeker2{
+    background: url('images/04_header-zoeker-02.jpg') center center / cover no-repeat;
+    min-height: 70vh; 
+}
+.first-slide-world_lid{
+    background: url('images/05_header-word-lid.jpg') center center / cover no-repeat;
+    min-height: 70vh; 
+}
+.section-content {
+    background: url('images/01_background-grey-icon-homepage.jpg') center center / cover no-repeat;   
+}
+.sectionIn{
+    margin-top: -146px;
+}
+/* header style */
+
+.link {
+    text-decoration: none;
+    position: relative;
+    transition: all ease-in-out 250ms;
+}
+
+.link::after {
+    content: "";
+    position: absolute;
+    display: block;
+    height: 0.3em;
+    width: 0%;
+    background-color: var(--green);
+    bottom: -1em;
+    transition: all ease-in-out 250ms;
+}
+
+  .link:hover::after {
+    width: 100%;
+  }
+
+  .link:hover {
+    color: var(--green);
+  }
+  .link:active{
+    background: #b0dac4;
+    opacity: 0.9;
+  }
+  .active{
+    /* background-color: #48FE48; */
+    /* background: #b0dac4;
+    opacity: 0.9; */
+  }
+
+/* header style */
+/*  ---------------------------------------- style card homepage & zoeker profil -------------------------------------------- */
+.profile_img{
+    margin-top: -60px;
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    z-index: 1;
+}
+/* .profile_card_zoeker{
+    margin-top: -70px;
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    z-index: 1;
+} */
+.text-detached{
+    position: absolute;
+    z-index: 1;
+    margin-top: 65px;
+}
+.card-body {
+    padding: 0 !important;
+
+}
+.card-title {
+    background: #018B42;
+    opacity: 0.3;
+    height: 15.6vh;
+    color: white;
+}
+.card-title_zoeker{
+    background: #018B42;
+    height: 16vh;
+}
+
+/* ------------------------------------------------------- Swiper ----------------------------------------------------- */
+.swiper-img {
+    width: 100px;
+    height: 100px;
+}
+.move_swiper_img{
+    width: 55px;
+}
+.custom-swiper-button-prev, .custom-swiper-button-next {
+    position: absolute;
+    top: 50%;
+    /* width: calc(var(--swiper-navigation-size)/ 44 * 27); */
+    height: var(--swiper-navigation-size);
+    margin-top: calc(0px - (var(--swiper-navigation-size)/ 2));
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--swiper-navigation-color,var(--swiper-theme-color));
+    font-size: 40px;
+    color: black;
+    width:150px;
+}
+
+.left_arrow {
+    position: absolute;
+    top: 30%;
+    left: 0px;
+}
+.right_arrow {
+    position: absolute;
+    top: 30%;
+    right: 0px;
+    z-index: 1;
+}
+
+.custom-swiper-button-next {
+    right: -55px;
+    left: auto;
+    margin-left: 12px !important;
+}
+.custom-swiper-button-prev {
+    left: -55px;
+    right: auto;
+}
+@media screen and (min-width: 757px) { 
+    .swiper-slide{
+        max-width: 140px;
+        /* background-color: blanchedalmond; */
+    }
+}
+
+
+/* bande section */
+
+.section-band{
+    background: url('images/groene-baan-quotes.jpg') center center / cover no-repeat;
+    min-height: 15vh;
+    max-width: 100%;
+}
+
+@media screen and (max-width: 757px) {
+    .first-slide-homepage_img, .first-slide-overOns_img, .first-slide-zoeker, .first-slide-world_lid{
+        min-height: 50vh; 
+        padding: 100px 0px 0px 0px;
+    }      
+    .sectionIn{
+        margin-top: 50px;
+    }
+    .card-title {
+        background: #018B42;
+         opacity: 1;
+         height: 20vh;
+    }
+    /* .card-title {
+        background: #018B42;
+        opacity: 0.3;
+        
+        color: white;
+    } */
+    .profile_img{
+        margin-top: -50px;
+        width: 100px;
+        height: 100px;
+    }
+}
