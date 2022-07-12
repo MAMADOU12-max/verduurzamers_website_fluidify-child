@@ -9,11 +9,11 @@
 <!-- ------------------------------------------- Start First Over ons slide ------------------------------------------ -->
 <section class="first-slide-zoeker">
     <div class="container px-md-4">
-        <div class="row ">
+        <div class="row">
             <div class="col-md-5 col-12 text-md-start text-center">
                 <h2 class="text-white display-5 fw-bold text-break text-md-start text-center">VIND&nbsp;VERDUURZAMER&nbsp;MET DE JUISTE SKILLS.</h1>
                 <button type="button" class="btn text-white my-3 px-5 font-weight rounded-pill py-1"
-                style="background-color: #D50074;">
+                    style="background-color: #D50074;">
                     <span class="fw-bold">LID WORDEN</span> 
                 </button>
             </div>
@@ -43,7 +43,7 @@
                 
                 <!-- <h4 class="fw-bold text-md-start text-center">Hoe werkt het?</h4> -->
                 
-                <div class="col-md-4 col-11">
+                <div class="col-md-4 col-11 order-md-0 order-1 mt-5 mt-md-0">
                     <h4 class="fw-bold text-md-start text-center">Hoe werkt het?</h4>
                     <p class="text-md-start text-center">Lorem ipsum dolor sit amet, consectetuer
                     adipiscing elit, sed diam nonummy nibh eu-ismod tincidunt ut laoreet dolore magna
@@ -53,7 +53,7 @@
                     aliquam erat volutpat. Ut wisi enim adaliquam erat volutpat. Ut wisi enim ad
                     ismod tincidunt ut laoreet dolore.</p>
                 </div>
-                <div class="col-md-8 col-11 p-md-0" >
+                <div class="col-md-8 col-11 p-md-0 order-md-1 order-0" >
                     <img class="img-fluid w-100" style="max-height: 300px"  src="<?php echo get_stylesheet_directory_uri();?>/images/01_test-afbeelding-01-opleidingen-homepage.jpg" alt="01_test-afbeelding-01-opleidingen-homepage">
                 </div>
             </div>

@@ -8,15 +8,15 @@
 
 <!-- ------------------------------------------- Start First Over ons slide ------------------------------------------ -->
 <section class="first-slide-zoeker2">
-    <div class="container">
+    <div class="container px-md-4">
         <div class="row ">
-                <div class="col-md-7 col-12 text-md-start text-center">
+            <div class="col-md-7 col-12 text-md-start text-center">
                 <h2 class="text-white display-5 fw-bold text-break text-md-start text-center">VIND&nbsp;EEN <br> VERDUURZAMER OM&nbsp;MEE&nbsp;SAMEN&nbsp;TE&nbsp;WERKEN.</h2>
                 <button type="button" class="btn text-white my-3 px-md-5 px-3 font-weight rounded-pill py-1"
                 style="background-color: #D50074;">
                     <span class="fw-bold">LID WORDEN</span> 
                 </button>
-                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -39,19 +39,11 @@
                 </div>
             </div>
             
-            <div class="row d-flex justify-content-md-center m-md-3 m-lg-5 mt-lg-0 mt-1 my-3 m-1">
+            <div class="row d-flex justify-content-center m-md-3 m-lg-5 mt-lg-0 mt-1 my-3 m-1">
                 
                 <h4 class="fw-bold text-md-start text-center my-3">Maak je selectie, kies een verduurzamer uit en maak contact.</h4>
                 
-                <div class="col-lg-4 col-12">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                        </select>
-                </div>
-                <div class="col-lg-4 col-12">
+                <div class="col-lg-4 col-11 my-2">
                     <select class="form-select" aria-label="Default select example">
                         <option selected>Open this select menu</option>
                         <option value="1">One</option>
@@ -59,7 +51,15 @@
                         <option value="3">Three</option>
                     </select>
                 </div>
-                <div class="col-lg-4 col-12">
+                <div class="col-lg-4 col-11 my-2">
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="col-lg-4 col-11 my-2">
                     <select class="form-select" aria-label="Default select example">
                         <option selected>Open this select menu</option>
                         <option value="1">One</option>

@@ -186,7 +186,7 @@ body,html {
 }
 
 @media screen and (max-width: 757px) {
-    .first-slide-homepage_img, .first-slide-overOns_img, .first-slide-zoeker, .first-slide-world_lid{
+    .first-slide-homepage_img, .first-slide-overOns_img, .first-slide-zoeker, .first-slide-zoeker2, .first-slide-world_lid{
         min-height: 50vh; 
         padding: 100px 0px 0px 0px;
     }      

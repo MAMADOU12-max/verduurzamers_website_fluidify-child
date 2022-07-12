@@ -84,7 +84,7 @@
             <div class="row d-flex justify-content-center m-md-3 m-lg-5 mt-lg-0 mt-1 my-3 m-1">
                 
                 <h4 class="fw-bold text-md-start text-center">Is het nodig; een gilde voor verduurzamers?</h4>
-                <div class="col-md-8 col-11">
+                <div class="col-md-8 col-11 order-md-0 order-1 my-md-1 my-4">
                     <h4 class="fw-bold my-2 text-md-start text-center">Titel item</h4>
                     <p class="text-md-start text-center">Lorem ipsum dolor sit amet, consectetuer
                     adipiscing elit, sed diam nonummy nibh eu-ismod tincidunt ut laoreet dolore magna
@@ -94,7 +94,7 @@
                     Lorem ipsum dolor sit amet, consectetuer aliquam erat volutpat. Ut wisi enim ad
                     adipiscing elit, sed diam nonummy nibh eu- aliquam erat volutpat. Ut wisi enim
                 </div>
-                <div class="col-md-4 col-11 pt-3" >
+                <div class="col-md-4 col-11 pt-3 order-md-1 order-0" >
                     <img class="img-fluid w-100" style="max-height: 300px"  src="<?php echo get_stylesheet_directory_uri();?>/images/01_test-afbeelding-01-opleidingen-homepage.jpg" alt="opleidingen">
                 </div>
             </div>
@@ -105,7 +105,7 @@
             <div class="row d-flex justify-content-center m-md-3 m-lg-5 mt-lg-0 mt-1 my-3 m-1">
                 
                 <h4 class="fw-bold text-md-start text-center">Is het nodig; een gilde voor verduurzamers?</h4>
-                <div class="col-md-8 col-11">
+                <div class="col-md-8 col-11 order-md-0 order-1 my-md-1 my-4">
                     <h4 class="fw-bold my-2 text-md-start text-center">Titel item</h4>
                     <p class="text-md-start text-center">Lorem ipsum dolor sit amet, consectetuer
                     adipiscing elit, sed diam nonummy nibh eu-ismod tincidunt ut laoreet dolore magna
@@ -120,7 +120,7 @@
                     aliquam erat volutpat. Ut wisi enim ad aliquam erat volutpat. Ut wisi enim ad
                     ismod tincidunt ut laoreet dolore.</p>
                 </div>
-                <div class="col-md-4 col-11 pt-3" >
+                <div class="col-md-4 col-11 pt-3 order-md-1 order-0" >
                     <img class="img-fluid w-100" style="max-height: 300px"  src="<?php echo get_stylesheet_directory_uri();?>/images/01_test-afbeelding-01-opleidingen-homepage.jpg" alt="Card image cap">
                 </div>
                 
@@ -142,7 +142,7 @@
             <div class="row d-flex justify-content-center m-md-3 m-lg-5 mt-lg-0 mt-1 my-3 m-1">
                 
                 <h4 class="fw-bold text-md-end text-center">Is het nodig; een gilde voor verduurzamers?</h4>
-                <div class="col-md-4 col-11 d-flex align-items-center" >
+                <div class="col-md-4 col-11 d-flex align-items-center order-md-1 order-0" >
                     
                     <div class="card border border-0" style="background: none; width: 22rem;">
                         <div class="card-body text-center">
@@ -155,7 +155,7 @@
                     </div>
 
                 </div>
-                <div class="col-md-8 col-11">
+                <div class="col-md-8 col-11 order-md-0 order-1 my-md-1 my-4">
                     <h4 class="fw-bold my-2 text-md-start text-center">Titel item</h4>
                     <p class="text-md-start text-center">Lorem ipsum dolor sit amet, consectetuer
                     adipiscing elit, sed diam nonummy nibh eu-ismod tincidunt ut laoreet dolore magna
@@ -174,7 +174,7 @@
                 <div class="col-md-4 col-11 pt-3" >
                     <img class="img-fluid w-100" style="max-height: 300px"  src="<?php echo get_stylesheet_directory_uri();?>/images/01_test-afbeelding-01-opleidingen-homepage.jpg" alt="Card image cap">
                 </div>
-                <div class="col-md-8 col-11">
+                <div class="col-md-8 col-11 my-md-1 my-4">
                     <h4 class="fw-bold my-2 text-md-start text-center">Titel item</h4>
                     <p class="text-md-start text-center">Lorem ipsum dolor sit amet, consectetuer
                     adipiscing elit, sed diam nonummy nibh eu-ismod tincidunt ut laoreet dolore magna
