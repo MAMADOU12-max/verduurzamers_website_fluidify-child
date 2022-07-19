@@ -25,7 +25,7 @@
                 <!-- this div make the button goes at the left side btw showing a small logo  -->
                 <div class="d-md-none d-sm-flex mt-2">
                     <a class="nav-link" aria-current="page" href="#">
-                        <img class="img-fluid" width="125rem" src="<?php echo get_stylesheet_directory_uri();?>/images/logo-02 Gilde van Verduurzamers.jpg" alt="">
+                        <img class="img-fluid" width="125rem" src="img/vaerduurzamers/JPG/logo-02 Gilde van Verduurzamers.jpg" alt="">
                     </a>    
                 </div>  
             
