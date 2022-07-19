@@ -1,20 +1,30 @@
 <?php /** Template Name: Template Zoeker */ ?>
 
+<!-- PHP CODE -->
+<?php 
+    $experts = get_posts(
+        array(
+            'post_type' => 'expert',
+            'posts_per_page' => 9,
+            'order' => 'ASC'
+        )
+    ); 
+
+    $courses= get_posts(
+        array(
+            'post_type' => 'course',
+            'posts_per_page' => 1,
+            'orderby' => 'desc',
+        )
+    );
+?>
+
+
+
 <!-- -------------------------------------------------- Include header ------------------------------------------------- -->
 <?php include "components/header-base.php"; ?>
 <!-- -------------------------------------------------- Include header ------------------------------------------------- -->
 
-/** Getting experts */
-<?php 
-    $experts = get_posts(
-        array
-        (
-        'post_type' => 'expert',
-        'order' => 'ASC'
-        )
-    ); 
-?>
-/** Getting experts */
 
 <!-- ------------------------------------------- Start First Over ons slide ------------------------------------------ -->
 <section class="first-slide-zoeker">
@@ -38,36 +48,47 @@
 <section class="my-3">
     <div class="container p-md-4 p-1">
 
-        <div class="my-2">
-            <div class="row mx-md-5 my-md-1 mb-1">
-                <div class="col-md-4 d-flex justify-content-md-start justify-content-center">
-                    <h2 class="text-md-start text-center text-break fw-bold text-success">
-                        DE VERDUURZAMERS
-                    </h2>
+        <?php 
+            foreach ($courses as $course)
+                {
+                    $img=get_field('image', $course->ID);
+                    $summary=get_field('summary', $course->ID);
+        ?>   
+          
+
+            <div class="my-2">
+                <div class="row mx-md-5 my-md-1 mb-1">
+                    <div class="col-md-4 d-flex justify-content-md-start justify-content-center">
+                        <h2 class="text-md-start text-center text-break fw-bold text-success">
+                            DE VERDUURZAMERS
+                        </h2>
+                    </div>
+                    <div class="col-md-8 d-none d-md-flex border-bottom border-5 border-success mb-3">
+                    </div>
                 </div>
-                <div class="col-md-8 d-none d-md-flex border-bottom border-5 border-success mb-3">
+                
+                <div class="row d-flex justify-content-center m-md-3 m-lg-5 mt-lg-0 mt-1 my-3 m-1 pt-3">
+                    
+                    <div class="col-md-4 col-11 order-md-0 order-1 mt-5 mt-md-0">
+                        <h4 class="fw-bold text-md-start text-center"><?= get_field('subtitle',$course->ID); ?></h4>
+                        <p class="text-md-start text-center section-text-limited"> <?= $summary; ?></p>
+                        <div class="text-md-start text-center">
+                            <button type="button" class="btn text-white px-5 py-1 font-weight rounded-pill"
+                                style="background-color: #2DAB66;">
+                                <span class="fw-bold">LEES VERDER</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-11 p-md-0 order-md-1 order-0" >
+                        <img class="img-fluid w-100" style="max-height: 300px" 
+                        src="<?php echo get_the_post_thumbnail_url($course->ID);?>" alt="01_test-afbeelding-01-opleidingen-homepage">
+                    </div>
                 </div>
             </div>
-            
-            <div class="row d-flex justify-content-center m-md-3 m-lg-5 mt-lg-0 mt-1 my-3 m-1 pt-3">
-                
-                <!-- <h4 class="fw-bold text-md-start text-center">Hoe werkt het?</h4> -->
-                
-                <div class="col-md-4 col-11 order-md-0 order-1 mt-5 mt-md-0">
-                    <h4 class="fw-bold text-md-start text-center">Hoe werkt het?</h4>
-                    <p class="text-md-start text-center">Lorem ipsum dolor sit amet, consectetuer
-                    adipiscing elit, sed diam nonummy nibh eu-ismod tincidunt ut laoreet dolore magna
-                    aliquam erat volutpat. Ut wisi enim ad aliquam erat volutpat. Ut wisi enim ad
-                    minim. <br>
-                    Lorem ipsum dolor sit amet, consectetuer aliquam erat volutpat. Ut wisi enim ad
-                    aliquam erat volutpat. Ut wisi enim adaliquam erat volutpat. Ut wisi enim ad
-                    ismod tincidunt ut laoreet dolore.</p>
-                </div>
-                <div class="col-md-8 col-11 p-md-0 order-md-1 order-0" >
-                    <img class="img-fluid w-100" style="max-height: 300px"  src="<?php echo get_stylesheet_directory_uri();?>/images/01_test-afbeelding-01-opleidingen-homepage.jpg" alt="01_test-afbeelding-01-opleidingen-homepage">
-                </div>
-            </div>
-        </div>
+
+        <?php
+                }
+        ?>    
 
     </div>
 </section>
@@ -78,7 +99,7 @@
 <!-- ------------------------------------------- Start Card profils section -------------------------------------------- -->
 <section>
     <div class="container"> 
-        <div class="row my-md-5 d-flex justify-content-center">
+        <div class="row my-md-5 d-flex justify-content-center justify-content-md-start">
         <?php
             foreach ($experts as $key => $expert) 
             {
@@ -86,11 +107,11 @@
                 $lastname= get_field('achternaam', $expert->ID);
                 $image= get_the_post_thumbnail_url($expert->ID);
         ?>
-                <div class="col-md-4 col-11 d-flex justify-content-md-end justify-content-center nopadding my-md-3 my-5">
+            <div class="col-md-4 col-11 d-flex justify-content-md-end justify-content-center nopadding my-md-3 my-5">
                 <div class="card border border-0" style="background: none; width: 22rem;">
                         <div class="card-body text-center">
                         <div class="d-flex justify-content-center">
-                            <img class="img-fluid rounded rounded-circle profile_img "
+                            <img class="img-fluid rounded rounded-circle profile_img border border-4 border-success"
                             src="<?= $image; ?>" alt="profielfoto-cartoon_HV">
                             <h4 class="text-detached text-white text-center text-break fw-bold w-75">
                                <?= $firstname.'&nbsp;'.$lastname; ?>
@@ -106,12 +127,8 @@
         <?php
             
         }
-        ?>
-
-        
-            
-            
-
+        ?>       
+              
         </div>
 
         

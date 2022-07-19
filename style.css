@@ -70,22 +70,56 @@ body,html {
     transition: all ease-in-out 250ms;
 }
 
-  .link:hover::after {
+.link:hover::after {
     width: 100%;
-  }
+}
 
-  .link:hover {
+.link:hover {
     color: var(--green);
-  }
-  .link:active{
+}
+.link:active{
     background: #b0dac4;
     opacity: 0.9;
-  }
-  .active{
+}
+.active{
     /* background-color: #48FE48; */
     /* background: #b0dac4;
     opacity: 0.9; */
-  }
+}
+
+
+.section-text-limited, .card-text-limited p{
+    overflow: hidden ;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical; 
+}
+.section-text-limited {
+    -webkit-line-clamp: 8;
+}
+.card-text-limited p{
+    -webkit-line-clamp: 5;
+}
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.pagination a.active {
+    background-color: #018B42;
+    color: white;
+}
+  
+  .pagination a:hover:not(.active) {background-color: #ddd;}
+
 
 /* header style */
 /*  ---------------------------------------- style card homepage & zoeker profil -------------------------------------------- */
@@ -122,6 +156,7 @@ body,html {
     background: #018B42;
     height: 16vh;
 }
+
 
 /* ------------------------------------------------------- Swiper ----------------------------------------------------- */
 .swiper-img {

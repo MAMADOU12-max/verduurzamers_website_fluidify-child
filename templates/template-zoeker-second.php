@@ -97,7 +97,7 @@
             </div>
         </div>
 
-        <div class="row my-md-5 d-flex justify-content-center">
+        <div class="row my-md-5 d-flex justify-content-center justify-content-md-start">
           <?php
             foreach($experts as $expert) 
             {
