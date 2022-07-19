@@ -1,10 +1,35 @@
 <?php /** Template Name: Template Homepage */ ?>
+<?php
+    /* 
+        Getting Nieuws, Courses and Experts post
+    */
+    $nieuws = get_posts( 
+        array(
+            'post_type' => 'nieuws',
+            'posts_per_page' => 3,
+        )
+    );
+    $experts = get_posts(
+        array(
+            'post_type' => 'expert',
+            'posts_per_page' => 3,
+            'orderby' => 'desc',
+        )
+    );
+    $courses= get_posts(
+        array(
+            'post_type' => 'course',
+            'posts_per_page' => 2,
+            'orderby' => 'desc',
+        )
+    );
+?>
+
 
 
 <!-- -------------------------------------------------- Include header ------------------------------------------------- -->
 <?php include "components/header-base.php"; ?>
 <!-- -------------------------------------------------- Include header ------------------------------------------------- -->
-
 
 
 <!-- --------------------------------------- Start modal to become a member -------------------------------------------- -->
@@ -93,83 +118,87 @@
 <section class="sectionIn" >
     <div class="container">
         <div class="row d-flex justify-content-center">
+
+            <div class="col-md-10">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-4 col-11 d-flex justify-content-md-end justify-content-center nopadding my-md-0 my-5">
+                        <div class="card border border-0" style="background: none; max-width: 22rem;">
+                            <div class="card-body text-center">
+                                <!-- <div class="card-title text-center mb-0">
+                                        <img class="img-fluid rounded rounded-circle profile_img border-5 border-success border "
+                                        src="https://tse3.mm.bing.net/th?id=OIP.hxRValICG6OlXI56NUfSjAHaF1&pid=Api&P=0&w=220&h=173" alt="">
+                                        <h4 class="text-white mb-0 p-4">VIN EEN VERDUURZAMER</h4>
+                                </div> -->
+                                <div class="d-flex justify-content-center">
+                                    <img class="img-fluid rounded rounded-circle profile_img border-success border "
+                                    src="<?php echo get_stylesheet_directory_uri();?>/images/01_icon_vind-een-verduurzamer.png" alt="">
+                                    <h4 class="text-detached text-white text-center text-break fw-bold w-75">
+                                        VIN&nbsp;EEN VERDUURZAMER
+                                    </h4>
+                                </div>
+                                <div class="card-title d-flex justify-content-center mb-0"></div>
+
+                                <div class="card-text p-3 text-center" style="background-color:#F8F8F8;">
+                                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus temporibus necessitatibus dolore.</p> 
+                                    <button type="button" class="btn text-white my-3 px-5 font-weight rounded-pill py-1"
+                                    style="background-color: #2DAB66;">
+                                        <span class="fw-bold">LID WORDEN</span>
+                                    </button>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-11 d-flex justify-content-md-center justify-content-center nopadding my-md-0 my-5">
+                        <div class="card border border-0" style="background: none; width: 22rem;">
+                                <div class="card-body text-center">
+                                <div class="d-flex justify-content-center">
+                                    <img class="img-fluid rounded rounded-circle profile_img border-success border "
+                                    src="<?php echo get_stylesheet_directory_uri();?>/images/01_icon_wat-is-het-gilde.png" alt="">
+                                    <h4 class="text-detached text-white text-center text-break fw-bold w-75">
+                                    VIN&nbsp;EEN VERDUURZAMER
+                                    </h4>
+                                </div>
+                            
+                                <div class="card-title text-center mb-0 d-flex justify-content-center"></div>
+                                <div class="card-text p-3 text-center" style="background-color:#F8F8F8;">
+                                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus temporibus necessitatibus dolore.</p> 
+                                    <button type="button" class="btn text-white my-3 py-1 px-5 font-weight rounded-pill"
+                                    style="background-color: #2DAB66;">
+                                        <span class="fw-bold">LID WORDEN</span>
+                                    </button>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-11 d-flex justify-content-md-start justify-content-center nopadding my-md-0 my-5">
+                        <div class="card border border-0" style="background: none; width: 22rem;">
+                            <div class="card-body text-center">
+                                <div class="d-flex justify-content-center">
+                                    <img class="img-fluid rounded rounded-circle profile_img border-success border "
+                                    src="<?php echo get_stylesheet_directory_uri();?>/images/01_icon_lid-worden.png" alt="">
+                                    <h4 class="text-detached text-white text-center text-break fw-bold w-75">
+                                        VIN&nbsp;EEN VERDUURZAMER
+                                    </h4>
+                                </div>
+                            
+                                <div class="card-title mb-0 d-flex justify-content-center"></div>
+                            
+                                <div class="card-text p-3 text-center" style="background-color:#F8F8F8;">
+                                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus temporibus necessitatibus dolore.</p> 
+                                    <button type="button" class="btn text-white my-3 px-5 font-weight rounded-pill py-1"
+                                    style="background-color: #2DAB66;">
+                                        <span class="fw-bold">LID WORDEN</span>
+                                    </button>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             
-            <div class="col-md-4 col-11 d-flex justify-content-md-end justify-content-center nopadding my-md-0 my-5">
-                <div class="card border border-0" style="background: none; max-width: 22rem;">
-                    <div class="card-body text-center">
-                        <!-- <div class="card-title text-center mb-0">
-                                <img class="img-fluid rounded rounded-circle profile_img border-5 border-success border "
-                                src="https://tse3.mm.bing.net/th?id=OIP.hxRValICG6OlXI56NUfSjAHaF1&pid=Api&P=0&w=220&h=173" alt="">
-                                <h4 class="text-white mb-0 p-4">VIN EEN VERDUURZAMER</h4>
-                        </div> -->
-                        <div class="d-flex justify-content-center">
-                            <img class="img-fluid rounded rounded-circle profile_img border-success border "
-                            src="<?php echo get_stylesheet_directory_uri();?>/images/01_icon_vind-een-verduurzamer.png" alt="">
-                            <h4 class="text-detached text-white text-center text-break fw-bold w-75">
-                                VIN&nbsp;EEN VERDUURZAMER
-                            </h4>
-                        </div>
-                        <div class="card-title d-flex justify-content-center mb-0"></div>
-
-                        <div class="card-text p-3 text-center" style="background-color:#F8F8F8;">
-                            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus temporibus necessitatibus dolore.</p> 
-                            <button type="button" class="btn text-white my-3 px-5 font-weight rounded-pill py-1"
-                            style="background-color: #2DAB66;">
-                                <span class="fw-bold">LID WORDEN</span>
-                            </button>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-11 d-flex justify-content-md-center justify-content-center nopadding my-md-0 my-5">
-                <div class="card border border-0" style="background: none; width: 22rem;">
-                        <div class="card-body text-center">
-                        <div class="d-flex justify-content-center">
-                            <img class="img-fluid rounded rounded-circle profile_img border-success border "
-                            src="<?php echo get_stylesheet_directory_uri();?>/images/01_icon_wat-is-het-gilde.png" alt="">
-                            <h4 class="text-detached text-white text-center text-break fw-bold w-75">
-                            VIN&nbsp;EEN VERDUURZAMER
-                            </h4>
-                        </div>
-                    
-                        <div class="card-title text-center mb-0 d-flex justify-content-center"></div>
-                        <div class="card-text p-3 text-center" style="background-color:#F8F8F8;">
-                            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus temporibus necessitatibus dolore.</p> 
-                            <button type="button" class="btn text-white my-3 py-1 px-5 font-weight rounded-pill"
-                            style="background-color: #2DAB66;">
-                                <span class="fw-bold">LID WORDEN</span>
-                            </button>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-11 d-flex justify-content-md-start justify-content-center nopadding my-md-0 my-5">
-                <div class="card border border-0" style="background: none; width: 22rem;">
-                    <div class="card-body text-center">
-                        <div class="d-flex justify-content-center">
-                            <img class="img-fluid rounded rounded-circle profile_img border-success border "
-                            src="<?php echo get_stylesheet_directory_uri();?>/images/01_icon_lid-worden.png" alt="">
-                            <h4 class="text-detached text-white text-center text-break fw-bold w-75">
-                                VIN&nbsp;EEN VERDUURZAMER
-                            </h4>
-                        </div>
-                    
-                        <div class="card-title mb-0 d-flex justify-content-center"></div>
-                    
-                        <div class="card-text p-3 text-center" style="background-color:#F8F8F8;">
-                            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus temporibus necessitatibus dolore.</p> 
-                            <button type="button" class="btn text-white my-3 px-5 font-weight rounded-pill py-1"
-                            style="background-color: #2DAB66;">
-                                <span class="fw-bold">LID WORDEN</span>
-                            </button>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
 </section>
@@ -179,43 +208,25 @@
 <!-- ---------------------------------------------- Start swiper section --------------------------------------------- -->
 <section>
     <div class="container-fluid">
+
         <div class="row d-flex justify-content-center my-5">
             <div class="col-md-8 col-11 ">
                 <h2 class="text-center fw-bold text-success">DE VERDUURZAMERS</h2>
         
                 <div class="slide_profils text-center mx-md-5">
-                        
-                    <div class="d-flex justify-content-center" >
-                        <img class="img-fluid rounded rounded-circle swiper-img border-success "
-                        src="<?php echo get_stylesheet_directory_uri();?>/images/profielfoto-cartoon_JW.png" alt="">                  
-                    </div>
-                
-                    <div class="d-flex justify-content-center">
-                        <img class="img-fluid rounded rounded-circle swiper-img border-success"
-                        src="<?php echo get_stylesheet_directory_uri();?>/images/profielfoto-cartoon_HV.png" alt="">                    
-                    </div>
-                
-                    <div class="d-flex justify-content-center">
-                        <img class="img-fluid rounded rounded-circle swiper-img border-success"
-                        src="<?php echo get_stylesheet_directory_uri();?>/images/profielfoto-cartoon_SG.png" alt="">
-                    </div>
-                        
-                    <div class="d-flex justify-content-center">
-                        <img class="img-fluid rounded rounded-circle swiper-img border-success "
-                        src="<?php echo get_stylesheet_directory_uri();?>/images/profielfoto-cartoon_JW.png" alt="">
-                    </div>
-                
-                    <div class="d-flex justify-content-center">
-                        <img class="img-fluid rounded rounded-circle swiper-img border-success "
-                        src="<?php echo get_stylesheet_directory_uri();?>/images/profielfoto-cartoon_SG.png" alt="">                    
-                    </div>
-    
-                    <div class="d-flex justify-content-center">
-                        <img class="img-fluid rounded rounded-circle swiper-img border-success"
-                        src="<?php echo get_stylesheet_directory_uri();?>/images/profielfoto-cartoon_HV.png" alt="">                    
-                    </div>
+                     <!-- Displaying all experts  -->
+                    <?php 
+                        foreach($experts as $expert)
+                        {
+                    ?>   
+                        <div class="d-flex justify-content-center">
+                            <img class="img-fluid rounded rounded-circle swiper-img border border-4 border-success"
+                            src=<?= get_the_post_thumbnail_url( $expert->ID); ?> alt="">                  
+                        </div>
+                    <?php
+                    }
+                    ?>
 
-                    
                 </div>
 
                 <div class="row d-flex justify-content-center">
@@ -226,7 +237,7 @@
                     <div class="text-center">
                         <button type="button" class="btn text-white my-3 px-md-5 px-3 font-weight rounded-pill py-1"
                         style="background-color: #D50074;">
-                            <span class="fw-bold">BEKIJK ALLE VERDUURZAMERS</span> 
+                            <span class="fw-bold">BEKIJK ALLEprojecten VERDUURZAMERS</span> 
                         </button>
                     </div>
                 </div>
@@ -252,93 +263,64 @@
 <!-- ------------------------------------------------- End bande section ---------------------------------------------- -->
 
 
-<!-- ------------------------------------------------- Start Cards section ---------------------------------------------- -->
+<!-- ------------------------------------------------- Start Nieuws section ---------------------------------------------- -->
 <section class="m-4">
     <div class="container">
-
-        <div class="row mx-md-5 my-md-1 my-3 d-flex justify-content-md-between">
+        <div class="row my-md-1 my-3 mx-md-5 d-flex justify-content-md-between">
             <div class="col-md-2">
                 <h1 class="text-md-start text-center fw-bold text-success">NIEUWS</h1>
             </div>
-            <div class="col-md-9 d-none d-md-flex border-bottom border-5 border-success mb-3 me-md-3"></div>
+            <div class="col-md-10 d-none d-md-flex border-bottom border-5 border-success mb-3"></div>
         </div>
-        <!-- CARDS -->
-        <div class="row my-md-2 d-flex justify-content-md-center justify-content-sm-center text-center">
 
-            <div class="col-md-4 col-12 d-flex justify-content-md-end justify-content-center">                    
-                <div class="d-flex flex-column bd-highlight">
-                    <div class="bd-highlight">
-                        <h4 class="fw-bold text-md-start text-center">Gave projecten</h4>
-                    </div>
-                    <div class="bd-highlight">
-                        <div class="card border-0" style="max-width: 22rem; box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;">
-                            <img class="card-img-top img-fluid" src="<?php echo get_stylesheet_directory_uri();?>/images/01_test-afbeelding-01-nieuws-homepage.jpg" alt="Card image cap">
-                            <div class="card-body m-4">
-                                <p class="card-text text-md-start text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <div class="text-md-center">
-                                    <button type="button" class="btn text-white px-5 py-1 font-weight rounded-pill"
-                                        style="background-color: #2DAB66;">
-                                            <span class="fw-bold">LID WORDEN</span>
-                                    </button>
-                                </div>     
+        <div class="row my-md-2 mx-md-4 d-flex justify-content-md-center justify-content-sm-center text-center">
+            <?php
+            foreach($nieuws as $nieuw){
+                $summary=get_field('summary', $nieuw->ID);
+                $img=get_field('image', $nieuw->ID);
+            ?>
+                <div class="col-md-4 col-12 mt-4 d-flex justify-content-md-center justify-content-center">                    
+                    <div class="d-flex flex-column bd-highlight">
+                        <div class="bd-highlight">
+                            <h4 class="fw-bold text-md-start text-center"> <?= $nieuw->post_title; ?> </h4>
+                        </div>
+                        <div class="bd-highlight">
+                            <div class="card border-0" style="max-width: 22rem; box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;">
+                                <img class="card-img-top img-fluid" style="height: 12rem" src="<?= $img; ?>" alt="Card image cap">
+                                <div class="card-body m-4">
+                                    <div class="card-text d-flex justify-content-center card-text-limited">
+                                        <?= $summary; ?>
+                                    </div>
+                                    <div class="text-md-center">
+                                        <button type="button" class="btn text-white px-5 py-1 font-weight rounded-pill"
+                                            style="background-color: #2DAB66;">
+                                                <span class="fw-bold">LID WORDEN</span>
+                                        </button>
+                                    </div>     
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            <?php
+            }
+            ?>
+        </div>
 
-            <div class="col-md-4 col-12 my-md-0 my-5 d-flex justify-content-md-center justify-content-center">
-                
-                <div class="d-flex flex-column bd-highlight">
-                    <div class="bd-highlight">
-                            <h4 class="fw-bold text-md-start text-center">Extern nieuws</h4>
-                    </div>
-                    <div class="bd-highlight">
-                        <div class="card border-0" style="max-width: 22rem; box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;">
-                            <img class="card-img-top img-fluid" src="<?php echo get_stylesheet_directory_uri();?>/images/01_test-afbeelding-02-nieuws-homepage.jpg" alt="Card image cap">
-                            <div class="card-body m-4">
-                                <p class="card-text text-md-start text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <div class="text-md-center">
-                                    <button type="button" class="btn text-white px-5 py-1 font-weight rounded-pill"
-                                        style="background-color: #2DAB66;">
-                                            <span class="fw-bold">LID WORDEN</span>
-                                    </button>
-                                </div>     
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 col-12 d-flex justify-content-md-start justify-content-center">
-            
-                <div class="d-flex flex-column bd-highlight">
-                    <div class="bd-highlight">
-                        <h4 class="fw-bold text-md-start text-center">Gave projecten</h4>
-                    </div>
-                    <div class="bd-highlight">
-                        <div class="card border-0" style="max-width: 22rem; box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;">
-                            <img class="card-img-top img-fluid" src="<?php echo get_stylesheet_directory_uri();?>/images/01_test-afbeelding-03-nieuws-homepage.jpg" alt="Card image cap">
-                            <div class="card-body m-4">
-                                <p class="card-text text-md-start text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <div class="text-md-center">
-                                    <button type="button" class="btn text-white px-5 py-1 font-weight rounded-pill"
-                                        style="background-color: #2DAB66;">
-                                            <span class="fw-bold">LID WORDEN</span>
-                                    </button>
-                                </div>     
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="row">
+            <div class="col-12 mt-5"> 
+                <a type="button" class="btn text-white my-3 px-5 font-weight rounded-pill py-1" href="/all-nieuws"
+                    style="background-color: #D50074;" >
+                    <span class="fw-bold">Lees meer</span> 
+                </a>
             </div>
         </div>
     </div>
 </section>
-<!-- -------------------------------------------------- End Card section ----------------------------------------------- -->
+<!-- -------------------------------------------------- End Nieuws section ----------------------------------------------- -->
 
 
-<!-- ----------------------------------------------- Start Content section ------------------------------------------- -->
+<!-- ----------------------------------------------- Start Courses section ------------------------------------------- -->
 <section class="section-content my-md-5">
     <div class="container p-md-4 p-1">
 
@@ -352,61 +334,52 @@
             <div class="col-md-7 d-none d-md-flex border-bottom border-5 border-success mb-3"></div>
         </div>
             <!-- CARDS -->
-        <div class="row d-flex justify-content-center m-md-3 mx-lg-5 pb-5 m-1">
-            <h4 class="fw-bold text-md-start text-center">Workplace management in 6-dagdelen</h4>
-                <div class="col-lg-8 col-11" >                
-                    <!-- <div class="card" > -->
-                        <img class="img-fluid w-100" style="max-height: 300px"  src="<?php echo get_stylesheet_directory_uri();?>/images/01_test-afbeelding-01-opleidingen-homepage.jpg" alt="Card image cap">
-                    <!-- </div> -->
-                </div>
-            <div class="col-lg-4 col-11">
-                <h4 class="fw-bold my-2 text-md-start text-center">Titel item</h4>
-                <p class="text-md-start text-center">Lorem ipsum dolor sit amet, consectetuer
-                    adipiscing elit, sed diam nonummy nibh eu-
-                    ismod tincidunt ut laoreet dolore magna
-                    aliquam erat volutpat. Ut wisi enim ad
-                    minim. <br>
-                    Lorem ipsum dolor sit amet, consectetuer
-                    adipiscing elit, sed diam nonummy nibh eu-
-                    ismod tincidunt ut laoreet dolore.
-                </p>
-                <div class="text-md-start text-center">
-                    <button type="button" class="btn text-white px-5 py-1 font-weight rounded-pill"
-                        style="background-color: #2DAB66;">
-                        <span class="fw-bold">LEES VERDER</span>
-                    </button>
-                </div>
-            </div>
-        </div>
 
-        <div class="row d-flex justify-content-center m-md-3 mx-lg-5 pb-5 m-1">
-            <h4 class="fw-bold text-md-start text-center">Workplace management in 6-dagdelen</h4>
-            <div class="col-lg-8 col-11" >
-                <img class="img-fluid w-100" style="max-height: 300px" 
-                    src="<?php echo get_stylesheet_directory_uri();?>/images/01_test-afbeelding-02-opleidingen-homepage.jpg" alt="Card image cap">
-            </div>
-            <div class="col-lg-4 col-11">
-                <h4 class="fw-bold my-2 text-md-start text-center">Titel item</h4>
-                <p class="text-md-start text-center">Lorem ipsum dolor sit amet, consectetuer
-                adipiscing elit, sed diam nonummy nibh eu-
-                ismod tincidunt ut laoreet dolore magna
-                aliquam erat volutpat. Ut wisi enim ad
-                minim. <br>
-                Lorem ipsum dolor sit amet, consectetuer
-                adipiscing elit, sed diam nonummy nibh eu-
-                ismod tincidunt ut laoreet dolore.</p>
-                <div class="text-md-start text-center">
-                    <button type="button" class="btn text-white px-5 px-2 py-1 font-weight rounded-pill"
-                    style="background-color: #2DAB66;">
-                        <span class="fw-bold">LEES VERDER</span>
-                    </button>
+        <?php 
+            foreach ($courses as $course){
+                $img=get_field('image', $course->ID);
+                $summary=get_field('summary', $course->ID);
+        ?>   
+            <div class="row d-flex justify-content-center m-md-3 mx-lg-5 pb-5 m-1">
+                <h4 class="fw-bold text-md-start text-center">Workplace management in 6-dagdelen</h4>
+                    <div class="col-lg-8 col-11" >                
+                        <!-- <div class="card" > -->
+                            <img class="img-fluid w-100" style="max-height: 300px"  src="<?php echo get_the_post_thumbnail_url($course->ID);?>" alt="Card image cap">
+                        <!-- </div> -->
+                    </div>
+                <div class="col-lg-4 col-11">
+                    <h4 class="fw-bold my-2 text-md-start text-center">
+                        <?= get_field('subtitle',$course->ID); ?>
+                    </h4>
+                    <p class="text-md-start text-center section-text-limited">
+                        <?= $summary; ?>
+                    </p>
+                    <div class="text-md-start text-center">
+                        <button type="button" class="btn text-white px-5 py-1 font-weight rounded-pill"
+                            style="background-color: #2DAB66;">
+                            <span class="fw-bold">LEES VERDER</span>
+                        </button>
+                    </div>
                 </div>
+            </div>
+
+        <?php
+            }
+        ?>
+        
+        <div class="row mt-3">
+            <div class="col-md-5 mx-md-3"></div>
+            <div class="col-md-6 text-md-start text-center mx-md-2"> 
+                <a type="button" class="btn text-white my-3 px-5 font-weight rounded-pill py-1" href="/all-courses"
+                    style="background-color: #D50074; width: 193px;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <span class="fw-bold">Lees meer</span> 
+                </a>
             </div>
         </div>
 
     </div>
 </section>
-<!-- ----------------------------------------------- End Content section ----------------------------------------------- -->
+<!-- ----------------------------------------------- End Courses section ----------------------------------------------- -->
 
 
 <!-- -------------------------------------------------- Include footer ------------------------------------------------- -->
