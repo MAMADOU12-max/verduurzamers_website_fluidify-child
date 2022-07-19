@@ -273,7 +273,7 @@
             <div class="col-md-10 d-none d-md-flex border-bottom border-5 border-success mb-3"></div>
         </div>
 
-        <div class="row my-md-2 mx-md-4 d-flex justify-content-md-center justify-content-sm-center text-center">
+        <div class="row my-md-2 mx-md-4 d-flex justify-content-md-start justify-content-center">
             <?php
             foreach($nieuws as $nieuw){
                 $summary=get_field('summary', $nieuw->ID);
@@ -308,7 +308,7 @@
         </div>
 
         <div class="row">
-            <div class="col-12 mt-5"> 
+            <div class="col-12 mt-5 text-center"> 
                 <a type="button" class="btn text-white my-3 px-5 font-weight rounded-pill py-1" href="/all-nieuws"
                     style="background-color: #D50074;" >
                     <span class="fw-bold">Lees meer</span> 
@@ -318,6 +318,7 @@
     </div>
 </section>
 <!-- -------------------------------------------------- End Nieuws section ----------------------------------------------- -->
+
 
 
 <!-- ----------------------------------------------- Start Courses section ------------------------------------------- -->
@@ -367,11 +368,10 @@
             }
         ?>
         
-        <div class="row mt-3">
-            <div class="col-md-5 mx-md-3"></div>
-            <div class="col-md-6 text-md-start text-center mx-md-2"> 
+        <div class="row mt-4">
+            <div class="col-12 text-center"> 
                 <a type="button" class="btn text-white my-3 px-5 font-weight rounded-pill py-1" href="/all-courses"
-                    style="background-color: #D50074; width: 193px;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    style="background-color: #D50074;">
                     <span class="fw-bold">Lees meer</span> 
                 </a>
             </div>
@@ -380,6 +380,7 @@
     </div>
 </section>
 <!-- ----------------------------------------------- End Courses section ----------------------------------------------- -->
+
 
 
 <!-- -------------------------------------------------- Include footer ------------------------------------------------- -->
