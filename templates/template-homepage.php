@@ -34,14 +34,79 @@
     
 ?>
 
+<!-- --------------------------------------- Start modal to become a member -------------------------------------------- -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header d-flex justify-content-end border-bottom-0">
+                <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+                <button type="button" class="bg-danger text-white border-0 p-2 px-3 rounded  rounded-3 fw-bold" data-bs-dismiss="modal" aria-label="Close">x</button>
+            </div>
+            <div class="modal-body px-md-5 px-3">
+                <form id="form" class="form">
+
+                    <div class="mb-4">
+                        <h3 class="text-center my-2">Become a member</h3>
+                    </div>
+
+                    <!-- Voornaam input -->
+                    <div class="mb-4 form-outline">
+                        <label class="form-label" for="email">Voornaam</label>
+                        <input type="text" class="form-control" placeholder="voornaam" id="email" />
+                    </div>
+
+                    <!-- Achternaam input -->
+                    <div class="mb-4 form-outline">
+                        <label class="form-label" for="email">Achternaam</label>
+                        <input type="text" class="form-control" placeholder="achternaam" id="email" />
+                    </div>
+
+                    <!-- Email input -->
+                    <div class="mb-4 form-outline">
+                        <label class="form-label" for="email">Email</label>
+                        <input type="email" class="form-control" placeholder="email" id="email" />
+                    </div>
+
+                    <!-- Bedrijf input -->
+                    <div class="mb-4 form-outline">
+                        <label class="form-label" for="email">Bedrijf</label>
+                        <input type="text" class="form-control" placeholder="bedrijf" id="email" />
+                    </div>
+
+                    <!-- Functie input -->
+                    <div class="mb-4 form-outline">
+                        <label class="form-label" for="email">Functie</label>
+                        <div>
+                            <textarea name="functie" id="functie" placeholder="job description" class="w-100" rows="5"></textarea>
+                        </div>
+                    </div>
+
+
+                    <div class="d-grid gap-2 col-12 mx-auto mb-4">
+                        <button class="btn btn-success" type="button"><strong>Submit</strong></button>
+                    </div>
+
+                </form>
+            </div>
+
+            <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div> -->
+        </div>
+    </div>
+</div>
+<!-- --------------------------------------- End modal to become a member -------------------------------------------- -->
+
+
 <!-- ------------------------------------------ Start First homepage slide ------------------------------------------- -->
 <section class="first-slide-homepage_img">
     <div class="container">
         <div class="row mx-md-2">
-            <div class="col-md-5 col-12 text-md-start text-center">
+            <div class="col-md-5 col-12 text-md-start text-center"> 
                 <h2 class="text-white display-5 fw-bold text-break">SLUIT JE AAN&nbsp; BIJ HET GILDE VAN VERDUURZAMERS.</h1>
                 <button type="button" class="btn text-white my-3 px-5 font-weight rounded-pill py-1"
-                style="background-color: #D50074;">
+                style="background-color: #D50074;" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <span class="fw-bold">LID WORDEN</span> 
                 </button>
             </div>
