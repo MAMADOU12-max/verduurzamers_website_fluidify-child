@@ -5,6 +5,18 @@
 <?php include "components/header-base.php"; ?>
 <!-- -------------------------------------------------- Include header ------------------------------------------------- -->
 
+<?php
+/** Getting experts */
+
+$experts = get_posts(
+    array(
+        'post_type' => 'expert',
+        'posts_per_page' => 3,
+        'orderby' => 'desc',
+    )
+);
+
+?>
 
 <!-- ------------------------------------------- Start First Over ons slide ------------------------------------------ -->
 <section class="first-slide-overOns_img">
@@ -161,35 +173,19 @@
         
                 <div class="slide_profils text-center mx-md-5">
                         
-                    <div class="d-flex justify-content-center" >
-                        <img class="img-fluid rounded rounded-circle swiper-img border-success "
-                        src="<?php echo get_stylesheet_directory_uri();?>/images/profielfoto-cartoon_JW.png" alt="">                  
-                    </div>
-                
-                    <div class="d-flex justify-content-center">
-                        <img class="img-fluid rounded rounded-circle swiper-img border-success"
-                        src="<?php echo get_stylesheet_directory_uri();?>/images/profielfoto-cartoon_HV.png" alt="">                    
-                    </div>
-                
-                    <div class="d-flex justify-content-center">
-                        <img class="img-fluid rounded rounded-circle swiper-img border-success"
-                        src="<?php echo get_stylesheet_directory_uri();?>/images/profielfoto-cartoon_SG.png" alt="">
-                    </div>
-                        
-                    <div class="d-flex justify-content-center">
-                        <img class="img-fluid rounded rounded-circle swiper-img border-success "
-                        src="<?php echo get_stylesheet_directory_uri();?>/images/profielfoto-cartoon_JW.png" alt="">
-                    </div>
-                
-                    <div class="d-flex justify-content-center">
-                        <img class="img-fluid rounded rounded-circle swiper-img border-success "
-                        src="<?php echo get_stylesheet_directory_uri();?>/images/profielfoto-cartoon_SG.png" alt="">                    
-                    </div>
-    
-                    <div class="d-flex justify-content-center">
-                        <img class="img-fluid rounded rounded-circle swiper-img border-success"
-                        src="<?php echo get_stylesheet_directory_uri();?>/images/profielfoto-cartoon_HV.png" alt="">                    
-                    </div>
+                    <!-- Displaying all experts  -->
+                    <?php 
+                        foreach($experts as $expert)
+                        {
+                    ?>   
+                        <div class="d-flex justify-content-center">
+                            <img class="img-fluid rounded rounded-circle swiper-img border-success" src=<?= get_the_post_thumbnail_url( $expert->ID); ?> alt="">                  
+                        </div>
+                    <?php
+                    }
+                    ?>
+
+                    
 
                     
                 </div>
