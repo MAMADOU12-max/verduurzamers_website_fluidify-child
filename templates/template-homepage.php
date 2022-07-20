@@ -6,6 +6,7 @@
 <!-- -------------------------------------------------- Include header ------------------------------------------------- -->
 
 <?php
+
 /* 
     Getting Nieuws, Courses and Experts post
 */
@@ -348,10 +349,12 @@
                         <?= $summary; ?>
                     </p>
                     <div class="text-md-start text-center">
-                        <button type="button" class="btn text-white px-5 py-1 font-weight rounded-pill"
+                        <a href="/template-detail-course?course-id=<?= $course->ID; ?>"> 
+                            <button  type="button" class="btn text-white px-5 py-1 font-weight rounded-pill"
                             style="background-color: #2DAB66;">
                             <span class="fw-bold">LEES VERDER</span>
-                        </button>
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>
