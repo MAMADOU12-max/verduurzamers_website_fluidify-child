@@ -1,28 +1,29 @@
 <?php /** Template Name: Template OverOns */ ?>
 
 
+<?php
+    /** Getting experts */
+
+    $experts = get_posts(
+        array(
+            'post_type' => 'expert',
+            'posts_per_page' => 3,
+            'orderby' => 'desc',
+        )
+    );
+?>
+
+
 <!-- -------------------------------------------------- Include header ------------------------------------------------- -->
 <?php include "components/header-base.php"; ?>
 <!-- -------------------------------------------------- Include header ------------------------------------------------- -->
 
-<?php
-/** Getting experts */
-
-$experts = get_posts(
-    array(
-        'post_type' => 'expert',
-        'posts_per_page' => 3,
-        'orderby' => 'desc',
-    )
-);
-
-?>
 
 <!-- ------------------------------------------- Start First Over ons slide ------------------------------------------ -->
 <section class="first-slide-overOns_img">
     <div class="container px-md-4">
         <div class="row ">
-            <div class="col-md-5 col-12 text-md-start text-center">
+            <div class="col-md-5 col-12 text-md-start text-center mx-md-2">
                 <h2 class="text-white display-5 fw-bold text-break text-md-start text-center">SLUIT JE AAN&nbsp; BIJ HET GILDE VAN VERDUURZAMERS.</h1>
                 <button type="button" class="btn text-white my-3 px-5 font-weight rounded-pill py-1"
                 style="background-color: #D50074;">
@@ -56,7 +57,7 @@ $experts = get_posts(
                 <div class="col-lg-4 col-11 pt-3" >
                     <img class="img-fluid w-100" style="max-height: 300px"  src="<?php echo get_stylesheet_directory_uri();?>/images/01_test-afbeelding-01-opleidingen-homepage.jpg" alt="Card image cap">
                 </div>
-                <div class="col-lg-8 col-11 my-md-1 my-4">
+                <div class="col-lg-8 col-11 my-md-1 my-4 card-text-limited">
                     <h4 class="fw-bold my-2 text-md-start text-center">Titel item</h4>
                     <p class="text-md-start text-center">Lorem ipsum dolor sit amet, consectetuer
                     adipiscing elit, sed diam nonummy nibh eu-ismod tincidunt ut laoreet dolore magna
@@ -88,7 +89,7 @@ $experts = get_posts(
             <div class="row d-flex justify-content-center m-md-3 m-lg-5 mt-lg-0 mt-1 my-3 m-1">
                 
                 <h4 class="fw-bold text-md-end text-center">Is het nodig; een gilde voor verduurzamers?</h4>
-                <div class="col-lg-8 col-11 my-md-1 my-4 order-md-0 order-1">
+                <div class="col-lg-8 col-11 my-md-1 my-4 order-md-0 order-1 card-text-limited">
                     <h4 class="fw-bold my-2 text-md-start text-center">Titel item</h4>
                     <p class="text-md-start text-center">Lorem ipsum dolor sit amet, consectetuer
                     adipiscing elit, sed diam nonummy nibh eu-ismod tincidunt ut laoreet dolore magna
@@ -127,7 +128,7 @@ $experts = get_posts(
                 <div class="col-lg-4 col-11 pt-3" >
                     <img class="img-fluid w-100" style="max-height: 300px"  src="<?php echo get_stylesheet_directory_uri();?>/images/01_test-afbeelding-01-opleidingen-homepage.jpg" alt="Card image cap">
                 </div>
-                <div class="col-lg-8 col-11 my-md-1 my-4">
+                <div class="col-lg-8 col-11 my-md-1 my-4 card-text-limited">
                     <h4 class="fw-bold my-2 text-md-start text-center">Titel item</h4>
                     <p class="text-md-start text-center">Lorem ipsum dolor sit amet, consectetuer
                     adipiscing elit, sed diam nonummy nibh eu-ismod tincidunt ut laoreet dolore magna
@@ -179,15 +180,12 @@ $experts = get_posts(
                         {
                     ?>   
                         <div class="d-flex justify-content-center">
-                            <img class="img-fluid rounded rounded-circle swiper-img border-success" src=<?= get_the_post_thumbnail_url( $expert->ID); ?> alt="">                  
+                            <img class="img-fluid rounded rounded-circle swiper-img border border-4 border-success" src=<?= get_the_post_thumbnail_url( $expert->ID); ?> alt="">                  
                         </div>
                     <?php
                     }
-                    ?>
+                    ?>    
 
-                    
-
-                    
                 </div>
 
                 <div class="row d-flex justify-content-center">
