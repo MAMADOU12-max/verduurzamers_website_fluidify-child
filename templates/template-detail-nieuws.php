@@ -1,19 +1,16 @@
 <?php /** Template Name: Template Details Nieuws */ ?>
 
-
-<!-- -------------------------------------------------- Include header ------------------------------------------------- -->
-<?php include "components/header-base.php"; ?>
-<!-- -------------------------------------------------- Include header ------------------------------------------------- -->
-
 <?php
     /**
      * Get nieuws id from url
      */
-  if (isset($_GET['nieuws-id'])) {
-    $nieuws = get_post($_GET['nieuws-id']);
-    $summary=get_field('summary', $nieuws->ID);
-    $img=get_field('image', $nieuws->ID);
-    $lastest_post=get_posts(
+    if (isset($_GET['nieuws-id'])) {
+        $nieuws = get_post($_GET['nieuws-id']);
+        // $title = get_post($GET['post_title']);
+        $summary=get_field('summary', $nieuws->ID);
+        // dd($summary);
+        $img=get_field('image', $nieuws->ID);
+        $lastest_post=get_posts(
             array(
                 'post_type' => 'nieuws',
                 'posts_per_page' => 2,
@@ -69,7 +66,12 @@ if($query->have_posts())
 ?>
 
 
-<!-- ----------------------------------------------- Start bande section ---------------------------------------------- -->
+<!-- -------------------------------------------------- Include header ------------------------------------------------- -->
+<?php include "components/header-base.php"; ?>
+<!-- -------------------------------------------------- Include header ------------------------------------------------- -->
+
+
+<!-- ----------------------------------------------- Start bande section ----------------------------------------------- -->
 <section class="">
     <div class="container-fluid">
         <div class="row">
@@ -79,20 +81,25 @@ if($query->have_posts())
         </div>
     </div>
 </section>
-<!-- ------------------------------------------------- End bande section ---------------------------------------------- -->
+<!-- ------------------------------------------------- End bande section ----------------------------------------------- -->
 
 
 
 <section class="py-md-5">
     <div class="container mt-5">
         <div class="row d-flex justify-content-center">
+
+            <!-- ------------------------------------------ Start Detail course --------------------------------------------- -->
+            <div class="col-11 text-md-start text-center">
+                <h4><?= $nieuws->post_title; ?></h4>
+            </div>
             <div class="col-md-7 col-11 my-3">
                 <div>
                     <img src="<?= $img ;?>"
-                     class="w-100" alt="">
+                     class="w-100 detail-image" alt="">
                 </div>
-                <div class="my-5">
-                    <?= $summary; ?>
+                <div class="my-5 text-md-start text-center">
+                    <p class="text-md-start text-center"><?= $summary; ?></p>
                 </div>
               
                 <div class="row d-flex justify-content-center">
@@ -155,7 +162,10 @@ if($query->have_posts())
                 </div>
         
             </div>
-          
+            <!-- ------------------------------------------- End Detail course ---------------------------------------------- -->
+
+
+            <!-- --------------------------------------- Start Mini dashboard side ------------------------------------------ -->
             <div class="col-md-4 col-11 my-3">
                 <div>
                     <div class="card" style="box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;">
@@ -164,17 +174,16 @@ if($query->have_posts())
                                 src="<?php echo get_stylesheet_directory_uri();?>/images/profielfoto-cartoon_HV.png" alt=""> 
                             <h5 class="mb-3">Melenchon</h5>
                             <div>
-                            <ul class="list-inline author-socials text-center">
+                                <ul class="list-inline author-socials text-center">
                                     <li class="list-inline-item mx-2">
-                                        <a href="#"><i class="fab fa-facebook-f text-muted fa-2x"></i></a>
+                                        <a href="#"><i class="fab fa-facebook-f text-muted" style="font-size: 23px;"></i></a>
                                     </li>
                                     <li class="list-inline-item mx-2">
-                                        <a href="#"><i class="fab fa-twitter text-muted fa-2x"></i></a>
+                                        <a href="#"><i class="fab fa-twitter text-muted" style="font-size: 25px;"></i></a>
                                     </li>
                                     <li class="list-inline-item mx-2">
-                                        <a href="#"><i class="fab fa-linkedin-in text-muted fa-2x"></i></a>
+                                        <a href="#"><i class="fab fa-linkedin-in text-muted" style="font-size: 25px;"></i></a>
                                     </li>
-                                    
                                 </ul>
                             </div>
                         </div>
@@ -216,10 +225,12 @@ if($query->have_posts())
                 </div>
 
             </div>
-        
-        </div>     .
+            <!-- ---------------------------------------- End Mini dashboard side ------------------------------------------- -->
+
+        </div>     
     </div>
 </section>
+
 
 
 <!-- -------------------------------------------------- Include footer ------------------------------------------------- -->
