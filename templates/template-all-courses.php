@@ -1,7 +1,7 @@
 <?php /** Template Name: Template All Courses */ ?>
 <?php
     /* 
-        Getting Nieuws, Courses and Experts post
+        Getting All Courses
     */
     $courses= get_posts(
         array(
@@ -53,10 +53,10 @@
                         <?= $summary; ?>
                     </p>
                     <div class="text-md-start text-center">
-                        <button type="button" class="btn text-white px-5 py-1 font-weight rounded-pill"
+                        <a type="button" class="btn text-white px-5 py-1 font-weight rounded-pill" href="/template-detail-course?course-id=<?= $course->ID; ?>"
                             style="background-color: #2DAB66;">
                             <span class="fw-bold">LEES VERDER</span>
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>

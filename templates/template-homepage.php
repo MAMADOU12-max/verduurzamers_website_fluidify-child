@@ -342,10 +342,8 @@
         ?>   
             <div class="row d-flex justify-content-center m-md-3 mx-lg-5 pb-5 m-1">
                 <h4 class="fw-bold text-md-start text-center">Workplace management in 6-dagdelen</h4>
-                    <div class="col-lg-8 col-11" >                
-                        <!-- <div class="card" > -->
-                            <img class="img-fluid w-100" style="max-height: 300px"  src="<?php echo get_the_post_thumbnail_url($course->ID);?>" alt="Card image cap">
-                        <!-- </div> -->
+                    <div class="col-lg-8 col-11" >     
+                        <img class="img-fluid w-100" style="max-height: 300px"  src="<?php echo get_the_post_thumbnail_url($course->ID);?>" alt="Card image cap">
                     </div>
                 <div class="col-lg-4 col-11">
                     <h4 class="fw-bold my-2 text-md-start text-center">
@@ -355,14 +353,15 @@
                         <?= $summary; ?>
                     </p>
                     <div class="text-md-start text-center">
-                        <button type="button" class="btn text-white px-5 py-1 font-weight rounded-pill"
+                        <a href="/template-detail-course?course-id=<?= $course->ID; ?>"> 
+                            <button  type="button" class="btn text-white px-5 py-1 font-weight rounded-pill"
                             style="background-color: #2DAB66;">
                             <span class="fw-bold">LEES VERDER</span>
-                        </button>
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>
-
         <?php
             }
         ?>
