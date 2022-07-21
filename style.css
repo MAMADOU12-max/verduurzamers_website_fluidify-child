@@ -245,3 +245,31 @@ body,html {
         height: 100px;
     }
 }
+
+
+/* -------------------------------------------- See profile ---------------------------------------------------- */
+.card-profil {
+    width: 350px;
+    transition: all 0.5s;
+}
+.image img {
+    transition: all 0.5s
+}
+.image img:hover {
+    transform: scale(1.5)
+}
+.name, .number, .icons i{
+    font-size: 22px;
+}
+.idd, .join, .text span {
+    font-size: 14px;
+}
+.idd1, .follow {
+    font-size: 12px
+}
+.follow, .text span {
+    font-weight: 500;
+    /* cursor: pointer; */
+}
+/* -------------------------------------------- See profile ---------------------------------------------------- */
+
