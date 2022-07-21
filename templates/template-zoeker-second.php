@@ -28,7 +28,7 @@
                 <div class="container mb-4 p-3 d-flex justify-content-center"> 
                     <div class="card-profil p-1 border-0"> 
                         <div class="image d-flex flex-column justify-content-center align-items-center"> 
-                            <button class="rounded rounded-pill btn-secondary" style="height: 140px; width: 140px"> 
+                            <button class="profil rounded rounded-pill btn-secondary" style="height: 140px; width: 140px"> 
                                 <img src="https://i.imgur.com/wvxPV9S.png" height="100" width="100" />
                             </button> 
                             <span class="name mt-3 fw-bold">Eleanor Pena</span> 
@@ -41,9 +41,41 @@
                                 <span class="number fw-bold">1069 <span class="follow" style="color: #444444">Followers</span></span> 
                             </div> 
                             <div class=" d-flex mt-2"> 
-                                <button class="btn btn-success py-2 px-3 h6 fw-bold rounded rounded-2">Edit Profile</button> 
+                                <button class="btn btn-success py-2 px-3 h6 fw-bold rounded rounded-2">
+                                    Images <i class="fa-solid fa-caret-down"></i> 
+                                    <!-- <i class="fa-solid fa-caret-up"></i> -->
+                                </button> 
                             </div> 
+                            
                             <div class="text mt-3 text-center"> 
+
+                                
+                               
+<!-- <div class="row d-flex justify-content-center my-5 bg-danger">
+    <div class="col-md-8 col-11 bg-success" style="width: 23.667% !important;"> -->
+        <div class="slide_profils text-center mx-md-5 bg-dark" style="width: 300px !important; height:60px !important">
+            <div class="d-flex justify-content-center" >
+                <img class="img-fluid" heigth="100" width="80"
+                src=<?= get_the_post_thumbnail_url( $expert->ID); ?> alt="">                 
+            </div>
+            <div class="d-flex justify-content-center" style="width: 79px !important; height:50px !important">
+                <img class="img-fluid" heigth="100" width="80"
+                src=<?= get_the_post_thumbnail_url( $expert->ID); ?> alt="">                 
+            </div>
+            <div class="d-flex justify-content-center" style="width: 79px !important; height:50px !important">
+                <img class="img-fluid" heigth="100" width="80"
+                src=<?= get_the_post_thumbnail_url( $expert->ID); ?> alt="">                 
+            </div> <div class="d-flex justify-content-center" style="width: 79px !important; height:50px !important">
+                <img class="img-fluid" heigth="100" width="80"
+                src=<?= get_the_post_thumbnail_url( $expert->ID); ?> alt="">                 
+            </div> <div class="d-flex justify-content-center" style="width: 79px !important;height:50px !important">
+                <img class="img-fluid" heigth="100" width="80"
+                src=<?= get_the_post_thumbnail_url( $expert->ID); ?> alt="">                 
+            </div>
+        </div>            
+    <!-- </div>
+</div> -->
+
                                 <span style="color: #545454">Eleanor Pena is a creator of minimalistic x bold graphics and digital artwork.<br><br> 
                                 Artist/ Creative Director by Day #NFT minting@ with FND night. </span> 
                             </div> 
@@ -136,7 +168,11 @@
                     </select>
                 </div>
                 <div class="col-lg-4 col-11 my-2">
-                    <button class="btn btn-large btn-success w-100 fw-bold">search</button>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Filter by functie</option>
+                        <option value="1">Fullstack developper </option>
+                        <option value="2">Nurse</option>
+                    </select>
                 </div>
 
             </div>
@@ -145,7 +181,6 @@
     </div>
 </section>
 <!-- ----------------------------------------------- End Content section ----------------------------------------------- -->
-
 
 
 <!-- ------------------------------------------- Start Card profils section -------------------------------------------- -->
@@ -171,7 +206,7 @@
                     $expert_bedrijf = get_field('bedrijf', $expert->ID);
             ?>
                 <div class="col-md-4 col-11 d-flex justify-content-center nopadding my-5">
-                    <div class="card border border-0" style="background: none; width: 22rem;">
+                    <div class="card border border-0" style="background: none; width: 22rem; box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;">
                         <div class="card-body text-center">
                             <div class="d-flex justify-content-center">
                                 <img class="img-fluid rounded rounded-circle profile_img border border-4 border-success"
@@ -276,3 +311,33 @@
 <!-- -------------------------------------------------- Include footer ------------------------------------------------- -->
 
 
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script>
+    $('.slide_profils').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        dots: false,
+        arrows: false,
+        // autoplay: true,
+        speed: 300,
+        // nextArrow: '<i class="fa fa-arrow-left fa-2x bg-success text-white p-1 px-2 rounded-pill positionned_arrow left_arrow"></i>',
+        // prevArrow: '<i class="fa fa-arrow-right fa-2x bg-success text-white p-1 px-2 rounded-pill positionned_arrow right_arrow"></i>',
+
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 3,
+                    centerMode: false 
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    centerMode: true,
+                }
+            }
+        ]
+    });
+</script>

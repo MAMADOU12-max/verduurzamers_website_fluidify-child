@@ -46,7 +46,7 @@
 
             <!-- ------------------------------------------ Start Detail course --------------------------------------------- -->
             <div class="col-11 text-md-start text-center">
-                <h4>Title course</h4>
+                <h4><?= $course->post_title ?></h4>
             </div>
             <div class="col-md-7 col-11 my-3">
                 <div>
@@ -95,6 +95,7 @@
             </div>
             <!-- ------------------------------------------- End Detail course ---------------------------------------------- -->
 
+
             <!-- --------------------------------------- Start Mini dashboard side ------------------------------------------ -->
             <div class="col-md-4 col-11 my-3">
                 <div>
@@ -103,8 +104,9 @@
                             <img class="img-fluid rounded rounded-circle swiper-img border-success"
                                 src="<?php echo get_stylesheet_directory_uri();?>/images/profielfoto-cartoon_HV.png" alt=""> 
                             <h5 class="mb-3">Melenchon</h5>
+
                             <div>
-                            <ul class="list-inline author-socials text-center">
+                                <ul class="list-inline author-socials text-center">
                                     <li class="list-inline-item mx-2">
                                         <a href="#"><i class="fab fa-facebook-f text-muted" style="font-size: 23px;"></i></a>
                                     </li>
@@ -114,7 +116,6 @@
                                     <li class="list-inline-item mx-2">
                                         <a href="#"><i class="fab fa-linkedin-in text-muted" style="font-size: 25px;"></i></a>
                                     </li>
-                                    
                                 </ul>
                             </div>
                         </div>
