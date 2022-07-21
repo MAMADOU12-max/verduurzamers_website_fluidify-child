@@ -1,4 +1,4 @@
-<?php /** Template Name: Template Detail Course */ ?>
+<?php /** Template Name: Template Details Nieuws */ ?>
 
 
 <!-- -------------------------------------------------- Include header ------------------------------------------------- -->
@@ -7,14 +7,15 @@
 
 <?php
     /**
-     * Get course id from url
+     * Get nieuws id from url
      */
-  if (isset($_GET['course-id'])) {
-    $course = get_post($_GET['course-id']);
-    
+  if (isset($_GET['nieuws-id'])) {
+    $nieuws = get_post($_GET['nieuws-id']);
+    $summary=get_field('summary', $nieuws->ID);
+    $img=get_field('image', $nieuws->ID);
     $lastest_post=get_posts(
             array(
-                'post_type' => 'course',
+                'post_type' => 'nieuws',
                 'posts_per_page' => 2,
                 'post_status' => 'publish',
                 'orderby' => 'date',
@@ -44,11 +45,11 @@
         <div class="row d-flex justify-content-center">
             <div class="col-md-7 col-11 my-3">
                 <div>
-                    <img src="<?= get_the_post_thumbnail_url($course->ID) ;?>"
+                    <img src="<?= $img ;?>"
                      class="w-100" alt="">
                 </div>
                 <div class="my-5">
-                    <?= $course->post_content; ?>
+                    <?= $summary; ?>
                 </div>
 
                 <div class="row d-flex justify-content-center">
@@ -122,7 +123,7 @@
                                     $post_date=preg_split("/[\s,]+/", $post->post_date )[0];
                                     $post_title=$post->post_title;    
                                 ?>
-                                    <a href= <?= "template-detail-course/?course-id=".$post->ID;?>  class="list-group-item list-group-item-action border-0">
+                                    <a href= <?= "template-detail-nieuws/?nieuws-id=".$post->ID;?>  class="list-group-item list-group-item-action border-0">
                                         <div class="d-flex w-100 justify-content-between">
                                         <!-- <small class="text-muted">3 days ago</small> -->
                                         </div>
