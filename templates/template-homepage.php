@@ -1,8 +1,15 @@
 <?php /** Template Name: Template Homepage */ ?>
 <?php
+<<<<<<< HEAD
+
+/* 
+    Getting Nieuws, Courses and Experts post
+*/
+=======
     /* 
         Getting Nieuws, Courses and Experts post
     */
+>>>>>>> 0bfd209a91e0036375f0c140df659877192d2862
     $nieuws = get_posts( 
         array(
             'post_type' => 'nieuws',
@@ -355,10 +362,12 @@
                         <?= $summary; ?>
                     </p>
                     <div class="text-md-start text-center">
-                        <button type="button" class="btn text-white px-5 py-1 font-weight rounded-pill"
+                        <a href="/template-detail-course?course-id=<?= $course->ID; ?>"> 
+                            <button  type="button" class="btn text-white px-5 py-1 font-weight rounded-pill"
                             style="background-color: #2DAB66;">
                             <span class="fw-bold">LEES VERDER</span>
-                        </button>
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>
