@@ -1,10 +1,6 @@
 <?php /** Template Name: Template Detail Course */ ?>
 
 
-<!-- -------------------------------------------------- Include header ------------------------------------------------- -->
-<?php include "components/header-base.php"; ?>
-<!-- -------------------------------------------------- Include header ------------------------------------------------- -->
-
 <?php
     /**
      * Get course id from url
@@ -24,6 +20,11 @@
   }
 ?>
 
+<!-- -------------------------------------------------- Include header ------------------------------------------------- -->
+<?php include "components/header-base.php"; ?>
+<!-- -------------------------------------------------- Include header ------------------------------------------------- -->
+
+
 
 <!-- ----------------------------------------------- Start bande section ---------------------------------------------- -->
 <section class="">
@@ -42,13 +43,18 @@
 <section class="py-md-5">
     <div class="container mt-5">
         <div class="row d-flex justify-content-center">
+
+            <!-- ------------------------------------------ Start Detail course --------------------------------------------- -->
+            <div class="col-11 text-md-start text-center">
+                <h4>Title course</h4>
+            </div>
             <div class="col-md-7 col-11 my-3">
                 <div>
                     <img src="<?= get_the_post_thumbnail_url($course->ID) ;?>"
-                     class="w-100" alt="">
+                     class="w-100 detail-image" alt="">
                 </div>
                 <div class="my-5">
-                    <?= $course->post_content; ?>
+                    <p class="text-md-start text-center"><?= $course->post_content; ?></p>
                 </div>
 
                 <div class="row d-flex justify-content-center">
@@ -87,6 +93,9 @@
                     </div>
                 </div>
             </div>
+            <!-- ------------------------------------------- End Detail course ---------------------------------------------- -->
+
+            <!-- --------------------------------------- Start Mini dashboard side ------------------------------------------ -->
             <div class="col-md-4 col-11 my-3">
                 <div>
                     <div class="card" style="box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;">
@@ -97,13 +106,13 @@
                             <div>
                             <ul class="list-inline author-socials text-center">
                                     <li class="list-inline-item mx-2">
-                                        <a href="#"><i class="fab fa-facebook-f text-muted fa-2x"></i></a>
+                                        <a href="#"><i class="fab fa-facebook-f text-muted" style="font-size: 23px;"></i></a>
                                     </li>
                                     <li class="list-inline-item mx-2">
-                                        <a href="#"><i class="fab fa-twitter text-muted fa-2x"></i></a>
+                                        <a href="#"><i class="fab fa-twitter text-muted" style="font-size: 25px;"></i></a>
                                     </li>
                                     <li class="list-inline-item mx-2">
-                                        <a href="#"><i class="fab fa-linkedin-in text-muted fa-2x"></i></a>
+                                        <a href="#"><i class="fab fa-linkedin-in text-muted" style="font-size: 25px;"></i></a>
                                     </li>
                                     
                                 </ul>
@@ -115,9 +124,9 @@
                 <div class="mt-4">
                     <div class="card" style="box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;">
                         <div class="card-body m-3">
-                             <h4 class="mt-3">Latest posts</h4>
+                            <h4 class="mt-3">Latest posts</h4>
 
-                             <div class="list-group">
+                            <div class="list-group">
                                 <?php foreach ($lastest_post as $post) { 
                                     $post_date=preg_split("/[\s,]+/", $post->post_date )[0];
                                     $post_title=$post->post_title;    
@@ -131,7 +140,6 @@
                                         <hr>
                                     </a>
                                 <?php } ?>
-                                
                             </div>
                              
                         </div>
@@ -147,7 +155,9 @@
                 </div>
 
             </div>
-        </div>     .
+            <!-- ----------------------------------------- End Mini dashboard side ------------------------------------------ -->
+
+        </div>     
     </div>
 </section>
 

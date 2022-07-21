@@ -22,7 +22,50 @@
                 'order' => 'DESC'
             )
         );
+
+        $args=array(
+            'post_type' => 'nieuws',
+            'post_status' => 'publish',
+            'orderby' => 'date',
+            'order' => 'DESC'
+        );
+$query= new WP_Query($args);        
+if($query->have_posts())
+{
+    while ($query->have_posts())
+        {
+            $query->the_post();
+            if (get_the_ID()==$nieuws->ID)
+            {
+                $prev_post=get_previous_post();
+                $next_post=get_next_post();
+            }
+        }
+}
+
+    $first_nieuw=get_posts( 
+        array(
+            'post_type' => 'nieuws',
+            'posts_per_page' => 1,
+            'post_status' => 'publish',
+            'orderby' => 'date',
+            'order' => 'ASC'
+        )
+        )[0];
+
+    $last_nieuw=get_posts(
+        array(
+            'post_type' => 'nieuws',
+            'posts_per_page' => 1,
+            'post_status' => 'publish',
+            'orderby' => 'date',
+            'order' => 'DESC'
+        )
+        )[0];
+    
   }
+
+  echo '<pre>'; print_r($prev_post); echo '</pre>';
 ?>
 
 
@@ -51,10 +94,15 @@
                 <div class="my-5">
                     <?= $summary; ?>
                 </div>
-
+              
                 <div class="row d-flex justify-content-center">
+                
                     <div class="col-md-6  my-2">
-                        <a href="#" class="text-decoration-none">
+                        <a href="/template-detail-nieuws/?nieuws-id=<?php if (!empty($prev_post)) 
+                                                    echo $prev_post->ID;
+                                                  else
+                                                    echo $last_nieuw->ID;
+                                            ?>" class="text-decoration-none">
                             <ul class="list-group">
                                 <li class="list-group-item" style="box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;">
                                     <!-- <div class="md-v-line"></div><i class="fas fa-laptop mr-4 pr-3"></i> Previous post -->
@@ -63,14 +111,26 @@
                                         Previous post
                                     </span>
                                     <div class="mt-2">
-                                        <h5 class="text-success">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis.</h5>
+                                        <h5 class="text-success">
+                                            <?php if (!empty($prev_post)) 
+                                                    echo $prev_post->post_title;
+                                                  else
+                                                    echo $last_nieuw->post_title;
+                                            ?>
+                                        </h5>
                                     </div>
                                 </li>
                             </ul>
                         </a>
                     </div>
+                
+                
+                
                     <div class="col-md-6 my-2 text-end">
-                        <a href="#" class="text-decoration-none">
+                        <a href="/template-detail-nieuws/?nieuws-id=<?php if (!empty($next_post)) 
+                                                    echo $next_post->ID;
+                                                  else
+                                                    echo $first_nieuw->ID;?>" class="text-decoration-none">
                             <ul class="list-group">
                                 <li class="list-group-item"
                                 style="box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;">
@@ -80,14 +140,22 @@
                                     </span>
                                     <i class="fa-solid fa-circle-arrow-right text-success"></i>
                                     <div class="mt-2">
-                                        <h5 class="text-success">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis.</h5>
+                                        <h5 class="text-success">
+                                        <?php if (!empty($next_post)) 
+                                                    echo $next_post->post_title;
+                                                  else
+                                                    echo $first_nieuw->post_title;?>
+                                        </h5>
                                     </div>
                                 </li>
                             </ul>
                         </a>
                     </div>
+                
                 </div>
+        
             </div>
+          
             <div class="col-md-4 col-11 my-3">
                 <div>
                     <div class="card" style="box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;">
@@ -148,6 +216,7 @@
                 </div>
 
             </div>
+        
         </div>     .
     </div>
 </section>
