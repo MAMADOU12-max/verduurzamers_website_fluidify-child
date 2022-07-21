@@ -1,32 +1,34 @@
-<?php /** Template Name: Template Detail Course */ ?>
-
+<?php /** Template Name: Template Details Nieuws */ ?>
 
 <?php
     /**
-     * Get course id from url
+     * Get nieuws id from url
      */
-  if (isset($_GET['course-id'])) {
-    $course = get_post($_GET['course-id']);
-    
-    $lastest_post=get_posts(
+    if (isset($_GET['nieuws-id'])) {
+        $nieuws = get_post($_GET['nieuws-id']);
+        // $title = get_post($GET['post_title']);
+        $summary=get_field('summary', $nieuws->ID);
+        // dd($summary);
+        $img=get_field('image', $nieuws->ID);
+        $lastest_post=get_posts(
             array(
-                'post_type' => 'course',
+                'post_type' => 'nieuws',
                 'posts_per_page' => 2,
                 'post_status' => 'publish',
                 'orderby' => 'date',
                 'order' => 'DESC'
             )
         );
-  }
+    }
 ?>
+
 
 <!-- -------------------------------------------------- Include header ------------------------------------------------- -->
 <?php include "components/header-base.php"; ?>
 <!-- -------------------------------------------------- Include header ------------------------------------------------- -->
 
 
-
-<!-- ----------------------------------------------- Start bande section ---------------------------------------------- -->
+<!-- ----------------------------------------------- Start bande section ----------------------------------------------- -->
 <section class="">
     <div class="container-fluid">
         <div class="row">
@@ -36,7 +38,7 @@
         </div>
     </div>
 </section>
-<!-- ------------------------------------------------- End bande section ---------------------------------------------- -->
+<!-- ------------------------------------------------- End bande section ----------------------------------------------- -->
 
 
 
@@ -46,15 +48,15 @@
 
             <!-- ------------------------------------------ Start Detail course --------------------------------------------- -->
             <div class="col-11 text-md-start text-center">
-                <h4><?= $course->post_title ?></h4>
+                <h4><?= $nieuws->post_title; ?></h4>
             </div>
             <div class="col-md-7 col-11 my-3">
                 <div>
-                    <img src="<?= get_the_post_thumbnail_url($course->ID) ;?>"
+                    <img src="<?= $img ;?>"
                      class="w-100 detail-image" alt="">
                 </div>
-                <div class="my-5">
-                    <p class="text-md-start text-center"><?= $course->post_content; ?></p>
+                <div class="my-5 text-md-start text-center">
+                    <p class="text-md-start text-center"><?= $summary; ?></p>
                 </div>
 
                 <div class="row d-flex justify-content-center">
@@ -104,7 +106,6 @@
                             <img class="img-fluid rounded rounded-circle swiper-img border-success"
                                 src="<?php echo get_stylesheet_directory_uri();?>/images/profielfoto-cartoon_HV.png" alt=""> 
                             <h5 class="mb-3">Melenchon</h5>
-
                             <div>
                                 <ul class="list-inline author-socials text-center">
                                     <li class="list-inline-item mx-2">
@@ -125,14 +126,14 @@
                 <div class="mt-4">
                     <div class="card" style="box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;">
                         <div class="card-body m-3">
-                            <h4 class="mt-3">Latest posts</h4>
+                             <h4 class="mt-3">Latest posts</h4>
 
-                            <div class="list-group">
+                             <div class="list-group">
                                 <?php foreach ($lastest_post as $post) { 
                                     $post_date=preg_split("/[\s,]+/", $post->post_date )[0];
                                     $post_title=$post->post_title;    
                                 ?>
-                                    <a href= <?= "template-detail-course/?course-id=".$post->ID;?>  class="list-group-item list-group-item-action border-0">
+                                    <a href= <?= "template-detail-nieuws/?nieuws-id=".$post->ID;?>  class="list-group-item list-group-item-action border-0">
                                         <div class="d-flex w-100 justify-content-between">
                                         <!-- <small class="text-muted">3 days ago</small> -->
                                         </div>
@@ -141,6 +142,7 @@
                                         <hr>
                                     </a>
                                 <?php } ?>
+                                
                             </div>
                              
                         </div>
@@ -156,11 +158,12 @@
                 </div>
 
             </div>
-            <!-- ----------------------------------------- End Mini dashboard side ------------------------------------------ -->
+            <!-- ---------------------------------------- End Mini dashboard side ------------------------------------------- -->
 
         </div>     
     </div>
 </section>
+
 
 
 <!-- -------------------------------------------------- Include footer ------------------------------------------------- -->
