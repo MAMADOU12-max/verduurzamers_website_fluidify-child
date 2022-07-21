@@ -20,7 +20,6 @@
 ?>
 
 
-
 <!-- -------------------------------------------------- Include header ------------------------------------------------- -->
 <?php include "components/header-base.php"; ?>
 <!-- -------------------------------------------------- Include header ------------------------------------------------- -->
@@ -32,10 +31,10 @@
         <div class="row">
             <div class="col-md-5 col-12 text-md-start text-center">
                 <h2 class="text-white display-5 fw-bold text-break text-md-start text-center">VIND&nbsp;VERDUURZAMER&nbsp;MET DE JUISTE SKILLS.</h1>
-                <button type="button" class="btn text-white my-3 px-5 font-weight rounded-pill py-1"
-                    style="background-color: #D50074;">
-                    <span class="fw-bold">LID WORDEN</span> 
-                </button>
+                <a type="button" class="btn text-white my-3 px-5 font-weight rounded-pill py-1"
+                    style="background-color: #D50074;" href="/template-zoeker-second">
+                    <span class="fw-bold">browsen</span> 
+                </a>
             </div>
         </div>
     </div>
@@ -44,17 +43,15 @@
 
 
 
-<!-- ----------------------------------------------- Start Content section ------------------------------------------- -->
+<!-- ----------------------------------------------- Start courses section ------------------------------------------- -->
 <section class="my-3">
     <div class="container p-md-4 p-1">
 
         <?php 
-            foreach ($courses as $course)
-                {
-                    $img=get_field('image', $course->ID);
-                    $summary=get_field('summary', $course->ID);
+            foreach ($courses as $course) {
+                $img=get_field('image', $course->ID);
+                $summary=get_field('summary', $course->ID);
         ?>   
-          
 
             <div class="my-2">
                 <div class="row mx-md-5 my-md-1 mb-1">
@@ -68,18 +65,17 @@
                 </div>
                 
                 <div class="row d-flex justify-content-center m-md-3 m-lg-5 mt-lg-0 mt-1 my-3 m-1 pt-3">
-                    
                     <div class="col-md-4 col-11 order-md-0 order-1 mt-5 mt-md-0">
                         <h4 class="fw-bold text-md-start text-center"><?= get_field('subtitle',$course->ID); ?></h4>
                         <p class="text-md-start text-center section-text-limited"> <?= $summary; ?></p>
                         <div class="text-md-start text-center">
-                            <button type="button" class="btn text-white px-5 py-1 font-weight rounded-pill"
-                                style="background-color: #2DAB66;">
+                            <a type="button" class="btn text-white px-5 py-1 font-weight rounded-pill"
+                                style="background-color: #2DAB66;" href="/template-detail-course?course-id=<?= $course->ID; ?>">
                                 <span class="fw-bold">LEES VERDER</span>
-                            </button>
+                            </a>
                         </div>
                     </div>
-                    <div class="col-md-8 col-11 p-md-0 order-md-1 order-0" >
+                    <div class="col-md-8 col-11 p-md-0 order-md-1 order-0">
                         <img class="img-fluid w-100" style="max-height: 300px" 
                         src="<?php echo get_the_post_thumbnail_url($course->ID);?>" alt="01_test-afbeelding-01-opleidingen-homepage">
                     </div>
@@ -87,51 +83,62 @@
             </div>
 
         <?php
-                }
+            }
         ?>    
 
     </div>
 </section>
-<!-- ----------------------------------------------- End Content section ----------------------------------------------- -->
+<!-- ----------------------------------------------- End courses section ----------------------------------------------- -->
 
 
 
 <!-- ------------------------------------------- Start Card profils section -------------------------------------------- -->
 <section>
     <div class="container"> 
-        <div class="row my-md-5 d-flex justify-content-center justify-content-md-start">
-        <?php
-            foreach ($experts as $key => $expert) 
-            {
-                $firstname= get_field('voornaam', $expert->ID);
-                $lastname= get_field('achternaam', $expert->ID);
-                $image= get_the_post_thumbnail_url($expert->ID);
-        ?>
-            <div class="col-md-4 col-11 d-flex justify-content-md-end justify-content-center nopadding my-md-3 my-5">
-                <div class="card border border-0" style="background: none; width: 22rem;">
-                        <div class="card-body text-center">
-                        <div class="d-flex justify-content-center">
-                            <img class="img-fluid rounded rounded-circle profile_img border border-4 border-success"
-                            src="<?= $image; ?>" alt="profielfoto-cartoon_HV">
-                            <h4 class="text-detached text-white text-center text-break fw-bold w-75">
-                               <?= $firstname.'&nbsp;'.$lastname; ?>
-                            </h4>
-                        </div>
-                    
-                        <div class="card-title_zoeker text-center mb-0 d-flex justify-content-center"></div>
+        <div class="row mx-md-5 my-md-5 d-flex justify-content-center justify-content-md-start">
+            <?php
+                foreach ($experts as $key => $expert){
+                    $firstname= get_field('voornaam', $expert->ID);
+                    $lastname= get_field('achternaam', $expert->ID);
+                    $image= get_the_post_thumbnail_url($expert->ID);
+            ?>
+                <div class="col-md-4 col-11 d-flex justify-content-md-end justify-content-center nopadding my-md-3 my-5">
+                    <div class="card border border-0 mb-5" style="background: none; width: 22rem;">
+                            <div class="card-body text-center">
+                            <div class="d-flex justify-content-center">
+                                <img class="img-fluid rounded rounded-circle profile_img border border-4 border-success"
+                                src="<?= $image; ?>" alt="profielfoto-cartoon_HV">
+                                <h4 class="text-detached text-white text-center text-break fw-bold w-75">
+                                <?= $firstname.'&nbsp;'.$lastname; ?>
+                                </h4>
+                            </div>
                         
+                            <div class="card-title_zoeker text-center mb-0 d-flex justify-content-center"></div>
+                            
+                        </div>
                     </div>
                 </div>
-            </div>
-        
-        <?php
-            
-        }
-        ?>       
-              
-        </div>
 
-        
+                <div class="col-md-4 col-11 d-flex justify-content-md-end justify-content-center nopadding my-md-3 my-5">
+                    <div class="card border border-0 mb-5" style="background: none; width: 22rem;">
+                            <div class="card-body text-center">
+                            <div class="d-flex justify-content-center">
+                                <img class="img-fluid rounded rounded-circle profile_img border border-4 border-success"
+                                src="<?= $image; ?>" alt="profielfoto-cartoon_HV">
+                                <h4 class="text-detached text-white text-center text-break fw-bold w-75">
+                                <?= $firstname.'&nbsp;'.$lastname; ?>
+                                </h4>
+                            </div>
+                        
+                            <div class="card-title_zoeker text-center mb-0 d-flex justify-content-center"></div>
+                            
+                        </div>
+                    </div>
+                </div>
+            <?php
+                }
+            ?>      
+        </div>
 
         <div class="row d-flex justify-content-center">
             <p class="col-md-6 col-11 text-center">
@@ -149,6 +156,7 @@
     </div>
 </section>
 <!-- -------------------------------------------- End Card profils section --------------------------------------------- -->
+
 
 
 <!-- ----------------------------------------------- Start bande section ---------------------------------------------- -->

@@ -2,7 +2,7 @@
 
 <?php
     /* 
-        Getting Nieuws, Courses and Experts post
+        Getting All Nieuws
     */
     $nieuws = get_posts( 
         array(

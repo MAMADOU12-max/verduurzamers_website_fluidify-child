@@ -1,15 +1,8 @@
 <?php /** Template Name: Template Homepage */ ?>
 <?php
-<<<<<<< HEAD
-
-/* 
-    Getting Nieuws, Courses and Experts post
-*/
-=======
     /* 
         Getting Nieuws, Courses and Experts post
     */
->>>>>>> 0bfd209a91e0036375f0c140df659877192d2862
     $nieuws = get_posts( 
         array(
             'post_type' => 'nieuws',
@@ -349,10 +342,8 @@
         ?>   
             <div class="row d-flex justify-content-center m-md-3 mx-lg-5 pb-5 m-1">
                 <h4 class="fw-bold text-md-start text-center">Workplace management in 6-dagdelen</h4>
-                    <div class="col-lg-8 col-11" >                
-                        <!-- <div class="card" > -->
-                            <img class="img-fluid w-100" style="max-height: 300px"  src="<?php echo get_the_post_thumbnail_url($course->ID);?>" alt="Card image cap">
-                        <!-- </div> -->
+                    <div class="col-lg-8 col-11" >     
+                        <img class="img-fluid w-100" style="max-height: 300px"  src="<?php echo get_the_post_thumbnail_url($course->ID);?>" alt="Card image cap">
                     </div>
                 <div class="col-lg-4 col-11">
                     <h4 class="fw-bold my-2 text-md-start text-center">
@@ -371,7 +362,6 @@
                     </div>
                 </div>
             </div>
-
         <?php
             }
         ?>
