@@ -9,7 +9,7 @@
         // $title = get_post($GET['post_title']);
         $summary=get_field('summary', $nieuws->ID);
         // dd($summary);
-        $img=get_field('image', $nieuws->ID);
+        $img=get_the_post_thumbnail_url($nieuws->ID);
         $lastest_post=get_posts(
             array(
                 'post_type' => 'nieuws',
@@ -61,8 +61,6 @@ if($query->have_posts())
         )[0];
     
   }
-
-  echo '<pre>'; print_r($prev_post); echo '</pre>';
 ?>
 
 

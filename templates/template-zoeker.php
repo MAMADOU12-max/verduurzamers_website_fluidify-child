@@ -119,22 +119,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4 col-11 d-flex justify-content-md-end justify-content-center nopadding my-md-3 my-5">
-                    <div class="card border border-0 mb-5" style="background: none; width: 22rem;">
-                            <div class="card-body text-center">
-                            <div class="d-flex justify-content-center">
-                                <img class="img-fluid rounded rounded-circle profile_img border border-4 border-success"
-                                src="<?= $image; ?>" alt="profielfoto-cartoon_HV">
-                                <h4 class="text-detached text-white text-center text-break fw-bold w-75">
-                                <?= $firstname.'&nbsp;'.$lastname; ?>
-                                </h4>
-                            </div>
-                        
-                            <div class="card-title_zoeker text-center mb-0 d-flex justify-content-center"></div>
-                            
-                        </div>
-                    </div>
-                </div>
+                
             <?php
                 }
             ?>      

@@ -9,6 +9,19 @@
             'orderby' => 'desc',
         )
     );
+
+    if (isset($_GET['pagina'])) {
+        $pagina = $_GET['pagina'];
+    } else {
+        $pagina = 1;
+    }
+    $nb_courses=2;
+    $start = ($pagina-1)*$nb_courses;
+    $end = $pagina*$nb_courses;
+    $nb_paginas = ceil(count($courses)/$nb_courses);
+    $courses = array_slice($courses, $start, $end);
+    $previous= $pagina == 1 ? 1 : $pagina-1;
+    $next= $pagina == $nb_paginas ? $nb_paginas : $pagina+1;
 ?>
 
 
@@ -39,7 +52,7 @@
                 $summary=get_field('summary', $course->ID);
         ?>   
             <div class="row d-flex justify-content-center m-md-3 mx-lg-5 pb-5 m-1">
-                <h4 class="fw-bold text-md-start text-center">Workplace management in 6-dagdelen</h4>
+                <h4 class="fw-bold text-md-start text-center"><?= $course->post_title; ?></h4>
                     <div class="col-lg-8 col-11" >                
                         <!-- <div class="card" > -->
                             <img class="img-fluid w-100" style="max-height: 300px"  src="<?php echo get_the_post_thumbnail_url($course->ID);?>" alt="Card image cap">
@@ -69,13 +82,16 @@
         <div class="row mt-5">
             <div class="col-12 text-center">
                 <div class="pagination">
-                    <a href="#">&laquo;</a>
-                    <a href="#">1</a>
-                    <a class="active" href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#">4</a>
-                    <a href="#">5</a>
-                    <a href="#">&raquo;</a>
+                    <a href="<?="?pagina=".$previous;?>">&laquo;</a>
+                    <?php
+                        for ($i=0;$i < $nb_paginas ;$i++) {
+                            ?>
+                            <a <?php if ($pagina==($i+1)) echo "class='active'"; ?>    href= <?=  "?pagina=".($i+1);?> >  <?=$i+1?> </a>
+                            <?php
+                                }
+                            ?>
+                    
+                    <a href="<?= "?pagina=".$next;?>"  >&raquo;</a>
                 </div>
             </div>
         </div>

@@ -8,6 +8,22 @@
             'orderby' => 'desc',
         )
     );
+    /**
+     * Getting specialties
+     */
+    $specialities=array();
+     foreach ($experts as $key => $expert) {
+        if (!empty(get_field('specialities', $expert->ID))) {
+            $expert_specialities= get_field('specialities', $expert->ID);
+            foreach ($expert_specialities as $key => $speciality) {
+                if (!in_array($speciality, $specialities)) {
+                    array_push($specialities, $speciality);
+                }
+            }   
+        }
+       
+    }
+    
 ?>
 
 <!-- -------------------------------------------------- Include header ------------------------------------------------- -->
@@ -154,24 +170,35 @@
                 <h4 class="fw-bold text-md-start text-center my-3">Maak je selectie, kies een verduurzamer uit en maak contact.</h4>
                 
                 <div class="col-lg-4 col-11 my-2">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Filter by specialization</option>
-                        <option value="1">Fullstack developper </option>
-                        <option value="2">Nurse</option>
+                    <select id="speciality" class="form-select" aria-label="Default select example">
+                        <option value="" selected>Filter by specialization</option>
+                        <?php
+                            foreach ($specialities as $key => $specialitie) {
+                                if (!empty($specialitie))
+                                    echo '<option value="'.$specialitie.'">'.$specialitie.'</option>';
+                            }
+                        ?>
                     </select>
                 </div>
                 <div class="col-lg-4 col-11 my-2">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Filter by bedrijf</option>
-                        <option value="1">Informaticien</option>
-                        <option value="2">Actor</option>
+                    <select id="bedrijf" class="form-select" aria-label="Default select example">
+                        <option value="" selected>Filter by bedrijf</option>
+                        <?php
+                            foreach ($experts as $key => $expert) {
+                                if (!empty(get_field('bedrijf',$expert->ID)))
+                                    echo '<option value="'.get_field('bedrijf',$expert->ID).'">'.get_field('bedrijf',$expert->ID).'</option>';
+                            }
+                        ?>
                     </select>
                 </div>
                 <div class="col-lg-4 col-11 my-2">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Filter by functie</option>
-                        <option value="1">Fullstack developper </option>
-                        <option value="2">Nurse</option>
+                    <select id="functie" class="form-select" aria-label="Default select example">
+                        <option value="" selected>Filter by functie</option>
+                        <?php
+                            foreach ($experts as $key => $expert) {
+                                echo '<option value="'.get_field('functie',$expert->ID).'">'.get_field('functie',$expert->ID).'</option>';
+                            }
+                        ?>
                     </select>
                 </div>
 
@@ -195,7 +222,7 @@
             </div>
         </div>
 
-        <div class="row my-md-5 mx-md-5 d-flex justify-content-center justify-content-md-start">
+        <div class="expert-row row my-md-5 mx-md-5 d-flex justify-content-center justify-content-md-start">
             <?php
                 foreach($experts as $expert) {
                     $expert_image= get_the_post_thumbnail_url($expert->ID, 'medium');
@@ -263,29 +290,7 @@
         </div>
 
     </div>
-        <div class="row d-flex justify-content-end">
-            <div class="col-md-5 text-md-start text-center">
-                <button type="button" class="btn text-white my-3 px-md-3 px-1 font-weight rounded-1 py-1" style="background-color: #D50074;">
-                    <span class="fw-bold">VOLGENDE PAGINA</span> 
-                    <i class="fa-solid fa-arrow-right ps-2"></i>
-                </button>
-            </div>
-            <div class="col-md-2 text-end my-3">
-              
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <div class="pagination">
-                            <a href="#">&laquo;</a>
-                            <a href="#">1</a>
-                            <a class="active" href="#">2</a>
-                            <a href="#">3</a>
-                            <a href="#">&raquo;</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
+        
 
     </div>
 </section>
@@ -312,6 +317,27 @@
 
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<script>
+    $('.form-select').change(function() {
+        var speciality = $('#speciality').val();
+        var functie= $('#functie').val();
+        var bedrijf = $('#bedrijf').val();
+        $.ajax({
+            url: '/ajax-filter',
+            type: 'POST',
+            data: {
+                speciality: speciality,
+                functie: functie,
+                bedrijf: bedrijf
+            },
+            success: function(data) {
+                $('.expert-row').html(data);
+            }
+        });
+    });
+</script>
+
 <script>
     $('.slide_profils').slick({
         slidesToShow: 3,

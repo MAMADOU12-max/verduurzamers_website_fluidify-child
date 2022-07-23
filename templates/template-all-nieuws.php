@@ -9,6 +9,20 @@
             'post_type' => 'nieuws'
         )
     );
+
+    if (isset($_GET['pagina'])) {
+        $pagina = $_GET['pagina'];
+    } else {
+        $pagina = 1;
+    }
+    $nb_nieuws=6;
+    $start = ($pagina-1)*$nb_nieuws;
+    $end = $pagina*$nb_nieuws;
+    $nb_paginas = ceil(count($nieuws)/$nb_nieuws);
+    $nieuws = array_slice($nieuws, $start, $end);
+    $previous= $pagina == 1 ? 1 : $pagina-1;
+    $next= $pagina == $nb_paginas ? $nb_paginas : $pagina+1;  
+
 ?>
 
 <!-- -------------------------------------------------- Include header ------------------------------------------------- -->
@@ -32,7 +46,7 @@
             <?php
             foreach($nieuws as $nieuw){
                 $summary=get_field('summary', $nieuw->ID);
-                $img=get_field('image', $nieuw->ID);
+                $img=get_the_post_thumbnail_url($nieuw->ID);
             ?>
             
                 <div class="col-md-4 col-12 mt-4 d-flex justify-content-md-center justify-content-center">                    
@@ -48,10 +62,12 @@
                                         <?= $summary; ?>
                                     </div>
                                     <div class="text-md-center">
+                                      <a href="<?= "template-detail-nieuws/?nieuws-id=".$nieuw->ID;?>">  
                                         <button type="button" class="btn text-white px-5 py-1 font-weight rounded-pill"
                                             style="background-color: #2DAB66;">
                                                 <span class="fw-bold">LID WORDEN</span>
                                         </button>
+                                     </a>
                                     </div>     
                                 </div>
                             </div>
@@ -68,13 +84,16 @@
         <div class="row mt-5">
             <div class="col-12 text-center">
                 <div class="pagination">
-                    <a href="#">&laquo;</a>
-                    <a href="#">1</a>
-                    <a class="active" href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#">4</a>
-                    <a href="#">5</a>
-                    <a href="#">&raquo;</a>
+                    <a href="<?="?pagina=".$previous;?>">&laquo;</a>
+                    <?php
+                        for ($i=0;$i < $nb_paginas ;$i++) {
+                            ?>
+                            <a <?php if ($pagina==($i+1)) echo "class='active'"; ?>    href= <?=  "?pagina=".($i+1);?> >  <?=$i+1?> </a>
+                            <?php
+                                }
+                            ?>
+                    
+                    <a href="<?= "?pagina=".$next;?>"  >&raquo;</a>
                 </div>
             </div>
         </div>

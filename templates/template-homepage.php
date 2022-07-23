@@ -207,7 +207,6 @@
 <!-- ---------------------------------------------- Start expert slide section --------------------------------------------- -->
 <section>
     <div class="container-fluid">
-
         <div class="row d-flex justify-content-center my-5">
             <div class="col-md-8 col-11 ">
                 <h2 class="text-center fw-bold text-success">DE VERDUURZAMERS</h2>
@@ -225,7 +224,7 @@
                         }
                     ?>
                         <!----------- default avatar profil ------------>
-                        <!-- <div class="d-flex justify-content-center">
+                         <!-- <div class="d-flex justify-content-center">
                             <img class="img-fluid rounded rounded-circle swiper-img border border-4 border-success p-2"
                             src="<?php echo get_stylesheet_directory_uri();?>/images/default-image.jpg" alt="">                  
                         </div> -->
@@ -281,7 +280,7 @@
             <?php
             foreach($nieuws as $nieuw){
                 $summary=get_field('summary', $nieuw->ID);
-                $img=get_field('image', $nieuw->ID);
+                $img=get_the_post_thumbnail_url($nieuw->ID);
             ?>
                 <div class="col-md-4 col-12 mt-4 d-flex justify-content-md-center justify-content-center">                    
                     <div class="d-flex flex-column bd-highlight">
@@ -290,11 +289,11 @@
                         </div>
                         <div class="bd-highlight">
                             <div class="card border-0" style="max-width: 22rem; box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;">
-                                <img class="card-img-top img-fluid" style="height: 12rem" src="<?= $img; ?>" alt="Card image cap">
+                                 <img class="card-img-top img-fluid" style="height: 12rem" src="<?= $img; ?>" alt="Card image cap">
                               
                                 <!-- ----------------------------- start default image news ------------------------------------>
-                                <!-- <img class="card-img-top img-fluid" style="height: 12rem" 
-                                src="<?php echo get_stylesheet_directory_uri();?>/images/default-course&news.jpg" alt="Card image cap"> -->
+                                 <!-- <img class="card-img-top img-fluid" style="height: 12rem" 
+                                src="<?php echo get_stylesheet_directory_uri();?>/images/default-course&news.jpg" alt="Card image cap">  -->
                                 <!-- ------------------------------ end default image news ------------------------------------->
 
 
@@ -303,7 +302,7 @@
                                         <?= $summary; ?>
                                     </div>
                                     <div class="text-md-center">
-                                        <a href=<?= "template-detail-nieuws/?nieuws-id=".$nieuw->ID;?>>    
+                                        <a href=<?= "template-detail-nieuws/?nieuws-id=".$nieuw->ID;?> >    
                                             <button type="button" class="btn text-white px-5 py-1 font-weight rounded-pill"
                                             style="background-color: #2DAB66;">
                                                 <span class="fw-bold">LID WORDEN</span>
@@ -358,11 +357,11 @@
             <div class="row d-flex justify-content-center m-md-3 mx-lg-5 pb-5 m-1">
                 <h4 class="fw-bold text-md-start text-center">Workplace management in 6-dagdelen</h4>
                     <div class="col-lg-8 col-11" >     
-                        <img class="img-fluid w-100" style="max-height: 300px"  src="<?php echo get_the_post_thumbnail_url($course->ID);?>" alt="Card image cap">
+                         <img class="img-fluid w-100" style="max-height: 300px"  src="<?php echo get_the_post_thumbnail_url($course->ID);?>" alt="Card image cap">
 
                         <!-- --------------------------------- start default image news --------------------------------------->
-                        <!-- <img class="img-fluid w-100" style="max-height: 300px"  
-                        src="<?php echo get_stylesheet_directory_uri();?>/images/default-course&news.jpg" alt="Card image cap"> -->
+                         <!-- <img class="img-fluid w-100" style="max-height: 300px"  
+                        src="<?php echo get_stylesheet_directory_uri();?>/images/default-course&news.jpg" alt="Card image cap"> --> -->
                         <!-- ----------------------------------- end default image news --------------------------------------->
 
                     </div>
