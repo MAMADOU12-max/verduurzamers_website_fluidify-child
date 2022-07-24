@@ -30,6 +30,33 @@
 <?php include "components/header-base.php"; ?>
 <!-- -------------------------------------------------- Include header ------------------------------------------------- -->
 
+<style>
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #018B42;
+  width: 50px;
+  height: 50px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  inset: 0px;
+  margin: auto;
+  display: block;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+
+
 
 
 <!-- --------------------------------------- Start modal to become a member -------------------------------------------- -->
@@ -222,6 +249,8 @@
             </div>
         </div>
 
+        <div hidden="hidden" class="loader"></div>
+
         <div class="expert-row row my-md-5 mx-md-5 d-flex justify-content-center justify-content-md-start">
             <?php
                 foreach($experts as $expert) {
@@ -324,14 +353,18 @@
         var functie= $('#functie').val();
         var bedrijf = $('#bedrijf').val();
         $.ajax({
-            url: '/ajax-filter',
+            url: '/gildevanverduurzamers/ajax-filter',
             type: 'POST',
             data: {
                 speciality: speciality,
                 functie: functie,
                 bedrijf: bedrijf
             },
+            beforeSend: function() {
+                $('.loader').attr('hidden', false);
+            },
             success: function(data) {
+                $('.loader').attr('hidden', true);
                 $('.expert-row').html(data);
             }
         });
